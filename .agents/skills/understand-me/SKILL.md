@@ -1,8 +1,10 @@
 ---
 name: understand-me
 description: 基于获授权的个人资料建立和维护结构化用户画像，用于后续个性化建议与执行。
-version: 0.1.0
+version: 0.3.0
 ---
+
+先读取并遵守 `03_agent/METHOD_POLICY.md`，包括直接显式调用本 Skill 的情况。依赖与可选辅助能力见 `03_agent/skill_registry.json`。这是方法流程，不代表已执行任何工具动作。
 
 # 适用场景
 
@@ -34,10 +36,10 @@ version: 0.1.0
 
 # 输出
 
-- `user_profile.md`
-- `profile_facts.jsonl`
-- `open_questions.md`
-- `weekly_delta.md`
+- `05_user_private/drafts/user_profile.md`
+- `05_user_private/drafts/profile_facts.jsonl`
+- `05_user_private/drafts/open_questions.md`
+- `05_user_private/drafts/weekly_delta.md`
 
 # 禁止事项
 
@@ -48,4 +50,4 @@ version: 0.1.0
 
 # 来源
 
-[XP-T-001#P011-P024] [XP-T-001#P026-P041] [XP-T-001#P075-P081]
+[XP-T-001（01_source/raw/XP-T-001_raw.txt；仅文件级定位）] [XP-T-001（01_source/raw/XP-T-001_raw.txt；仅文件级定位）] [XP-T-001（01_source/raw/XP-T-001_raw.txt；仅文件级定位）]

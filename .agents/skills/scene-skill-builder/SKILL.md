@@ -1,8 +1,12 @@
 ---
 name: scene-skill-builder
 description: 使用夏鹏材料中的“场景型 Skill 4+1 结构”把具体工作方法封装为可测试的 Skill。
-version: 0.1.0
+version: 0.3.0
 ---
+
+先读取并遵守 `03_agent/METHOD_POLICY.md`，包括直接显式调用本 Skill 的情况。依赖与可选辅助能力见 `03_agent/skill_registry.json`。这是方法流程，不代表已执行任何工具动作。
+
+生成文件只能先写入 `08_ops/skill_candidates/<name>/`；经用户审阅、补评测和验证后再进入自动发现目录。
 
 # 适用场景
 
@@ -61,4 +65,4 @@ version: 0.1.0
 
 # 来源
 
-[XP-T-002#P007-P033] [XP-T-002#P042-P059]
+[XP-T-002（01_source/raw/XP-T-002_raw.txt；仅文件级定位）] [XP-T-002（01_source/raw/XP-T-002_raw.txt；仅文件级定位）]

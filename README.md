@@ -1,126 +1,94 @@
 # xia-peng-method-skills
 
-基于夏鹏老师课程材料整理的**非官方方法论知识库与 Agent Skills**：把个人画像、场景型 Skill、目标管理、多 Agent 协作、副业验证和职业规划整理成有来源、有边界、可复盘的工作流程。
+基于有限课程材料整理的**非官方、证据驱动型方法论资产库**。主要供 Codex 等宿主使用，覆盖个人画像、场景 Skill、目标管理、多 Agent 工作流设计、副业验证和职业规划；不冒充夏鹏本人，不自带模型后端、长期记忆服务或多 Agent 调度器。
 
-这是一套以 Markdown、YAML、JSONL 和 Python 维护脚本组成的资产库，不是独立运行的聊天服务，也不包含模型、自动检索服务或自动执行的多 Agent 引擎。
-
-> [!IMPORTANT]
-> 项目不是夏鹏本人，不代表其授权或完整观点。课程的使用范围以 [来源清单](01_source/manifest.csv) 为准：`XP-T-001`—`003` 的授权状态尚未记录，`XP-T-004` 为内部使用、待确认。不要据此公开分发原稿或直接发布对外产品。
-
-[Codex 使用指南](README_CODEX.md) · [部署指南](07_deployment/MVP_DEPLOYMENT_GUIDE.md) · [贡献指南](CONTRIBUTING.md) · [评测说明](06_evals/README.md) · [项目分析与待办](08_ops/PROJECT_REVIEW.md) · [变更记录](CHANGELOG.md)
-
-## 能解决什么问题
-
-| Skill | 适用任务 | 主要交付物 |
-| --- | --- | --- |
-| [xia-peng-method-router](.agents/skills/xia-peng-method-router/SKILL.md) | 不确定该用哪套方法 | 任务路由、证据范围与边界判断 |
-| [understand-me](.agents/skills/understand-me/SKILL.md) | 整理经授权的简历、周报、项目资料 | 区分事实、自述、推断的画像草案 |
-| [scene-skill-builder](.agents/skills/scene-skill-builder/SKILL.md) | 将重复工作封装成 Skill | 场景、流程、输入输出、验收与测试题 |
-| [goal-management](.agents/skills/goal-management/SKILL.md) | 拆解目标并落实执行 | 上下文、资源、行动节奏、汇报与复盘 |
-| [agent-team-workflow](.agents/skills/agent-team-workflow/SKILL.md) | 设计多人或多 Agent 协作 | Collector / Planner / Doer 的交接、验收与审批点 |
-| [side-business-system](.agents/skills/side-business-system/SKILL.md) | 验证副业或服务方向 | 核心假设、低成本验证、预算与停止条件 |
-| [career-planning](.agents/skills/career-planning/SKILL.md) | 转岗、跳槽、offer 比较与第二曲线 | 优势证据、决策比较与可逆试炼方案 |
-
-仓库另有 [`create-readme`](.agents/skills/create-readme/SKILL.md) 文档维护辅助 Skill，不计入上述七个方法论 Skill。
+> 当前四个来源中，XP-T-001—003 只能提供文件级定位；XP-T-004 有可解析的校对稿段落。构建和静态测试不能证明课程结论正确或模型行为通过。对外分发授权与严格行为验收仍需单独确认。
 
 ## 快速开始
 
-### 1. 获取完整仓库
-
-需要 Git；运行维护脚本和测试时建议使用 Python 3.10 或更高版本，脚本仅使用标准库。Codex 需单独安装并完成登录，安装入口见 [Codex 使用指南](README_CODEX.md)。
+完整克隆本仓库，在仓库根目录执行（Python 3.11+）：
 
 ```bash
-git clone https://github.com/daffnjk/xia-peng-method-skills.git
-cd xia-peng-method-skills
-python3 scripts/verify_codex_setup.py
-python3 scripts/sync_codex_skills.py --check
+python -m venv .venv
+# macOS / Linux：source .venv/bin/activate
+# Windows PowerShell：.venv\Scripts\Activate.ps1
+python -m pip install -r requirements-dev.txt
+python scripts/assets.py validate
+python -m unittest discover -s tests -v
+python scripts/assets.py build
+python scripts/assets.py validate --check-build
 ```
 
-私有仓库需要具有访问权限的 GitHub 身份。下载 ZIP 时必须完整解压，并确认 `.agents/` 没有被遗漏。Windows 下可将 `python3` 替换为本机对应的 Python 命令。
+构建产物在 `dist/`：`runtime/` 与 `runtime.zip` 是内部运行包；`review_dashboard.html` 是自动生成的知识审阅页；`golden_questions.md` 是评测人员视图，**不要提供给被测模型**。运行包不包含私人目录、inbox、题库预期或第三方开发辅助 Skill。
 
-### 2. 从项目根目录启动 Codex
+在 Codex 中打开仓库，先输入：
+
+```text
+阅读 AGENTS.md 和 03_agent/METHOD_POLICY.md，说明当前证据范围与可用 Skill，不修改文件。
+```
+
+然后直接描述任务，或显式调用 `$career-planning`、`$goal-management` 等。详细说明见 [Codex 使用指南](README_CODEX.md)。单独复制某个 `SKILL.md` 不等于带走其证据和公共规则。
+
+## 能力与依赖
+
+| Skill | 作用 |
+| --- | --- |
+| `xia-peng-method-router` | 一个主流程，按需加入辅助能力，控制材料边界 |
+| `understand-me` | 读取授权资料，生成待确认画像差异 |
+| `scene-skill-builder` | 生成可评测的候选 Skill，审核后再启用 |
+| `goal-management` | 目标口径、路径、资源、节奏、汇报与复盘 |
+| `agent-team-workflow` | 设计 Collector / Planner / Doer 的责任、契约和回退 |
+| `side-business-system` | 在现实约束下设计可逆副业验证 |
+| `career-planning` | 优势证据、职业选项、试炼与回退路径 |
+
+声明版本与可选依赖以 [Skill 注册表](03_agent/skill_registry.json) 为准。`create-readme` 是原有第三方开发辅助工具，不属于方法论运行包。
+
+## 架构与唯一维护源
+
+```text
+01_source/          原稿、校对稿、登记清单与来源哈希锁
+02_knowledge/       YAML 知识卡：原则、案例、模型、冲突、风险主张
+03_agent/           公共运行规则与 Skill 注册表
+.agents/skills/     唯一 Skill 编辑源
+05_user_private/   本地授权资料；不进入分发包
+06_evals/          JSONL 题库与评分规则；不进入被测模型上下文
+08_ops/            接入、审阅、迁移记录和发布流程
+schemas/           版本化数据契约
+scripts/           校验、构建、检索上下文、接入与评测工具
+tests/            合成资料单元测试
+dist/             自动生成，不编辑、不提交
+```
+
+`04_skills/` 已退出编辑流程，不再反向同步。原则 JSONL、黄金题展示、审阅页面由源资产生成，不保留第二个独立编辑源。公共方法规则只有 [METHOD_POLICY.md](03_agent/METHOD_POLICY.md) 一份；平台系统提示词由构建复制，工程维护规则留在 [AGENTS.md](AGENTS.md)。
+
+## 证据与上下文命令
 
 ```bash
-codex
+python scripts/assets.py resolve XP-T-004#P012-P020
+python scripts/assets.py resolve XP-T-001
+python scripts/assets.py context --skill career-planning --query "优势 试炼"
 ```
 
-第一次先进行只读检查：
+`resolve` 验证文件和锚点，不验证语义支持。前三个来源的旧 `#Pxxx` 已归档到 `legacy_source_refs`，不能继续作为有效引用。`context` 返回知识和同来源治理记录，不读取个人资料、不执行工具，也不是语义向量检索。
 
-```text
-先阅读 AGENTS.md，检查 .agents/skills/ 和现有来源清单。
-说明当前项目能做什么、不能做什么，并指出材料不足之处。不要修改文件。
-```
+## 维护与评测
 
-然后在 Codex CLI 中使用 `/skills` 查看技能，或显式调用：
-
-```text
-$goal-management
-我要在四周内完成一个客户试点。先区分事实、假设和缺失信息，
-再给出资源需求、阶段交付物、验收指标、风险与停止条件。
-```
-
-```text
-$career-planning
-我在比较转岗和留任。先列出需要核实的优势证据与市场信息，
-再设计低成本、可逆的试炼；不要凭人格测评或历史案例直接替我定职业。
-```
-
-Codex 的项目规则与技能发现机制见 [官方 AGENTS.md 文档](https://developers.openai.com/codex/guides/agents-md/) 和 [官方 Skills 文档](https://developers.openai.com/codex/skills/)。其他平台需按 [部署指南](07_deployment/MVP_DEPLOYMENT_GUIDE.md) 显式配置，不能假定自动读取这些目录。
-
-## 当前证据范围
-
-| 来源 ID | 内容 | 仓库中的证据文件 |
-| --- | --- | --- |
-| XP-T-001 | 让智能体懂你 | [原稿](01_source/raw/XP-T-001_raw.txt) |
-| XP-T-002 | 场景型 Skill 与目标管理 | [原稿](01_source/raw/XP-T-002_raw.txt) |
-| XP-T-003 | 多 Agent 工作流与变现系统 | [原稿](01_source/raw/XP-T-003_raw.txt) |
-| XP-T-004 | 职业规划，12 讲 | [原稿](01_source/raw/XP-T-004_raw.txt) · [带稳定锚点的校对稿](01_source/reviewed/XP-T-004_reviewed.txt) |
-
-回答应区分 **材料明确表达 / 材料归纳 / 工程化外推 / 材料不足**。关键结论应给出来源 ID 和实际文件路径，必要时回查原稿。`XP-T-001`—`003` 的历史 `#Pxxx` 引用尚需补齐映射，不能当成已验证的文件锚点；详情见 [评测说明](06_evals/README.md)。
-
-“十个教练模型”和完整职业教练 Skill 等材料仍缺失；不得补造。当前岗位、薪资、行业、平台能力与收益类信息需要重新核验，课程例子不等于当前事实或结果保证。
-
-## 仓库结构
-
-```text
-.agents/skills/       Codex 实际读取的技能目录
-01_source/           来源清单、原稿、校对稿、收件箱与纠错记录
-02_knowledge/        原则、案例、模型、冲突、风险主张与思维导航
-03_agent/            通用 SYSTEM_PROMPT.md
-04_skills/           七个方法论 Skill 的兼容资产与同步源
-05_user_private/     本地个人资料；除说明文件外默认 Git 忽略
-06_evals/            黄金题、JSONL 题库、评分量表与执行说明
-07_deployment/       平台部署、资料上传与审阅说明
-08_ops/              课程接入、合并决策、发布清单与项目分析
-scripts/             环境检查、Skill 同步、新课程登记
-tests/              维护脚本的单元测试
-AGENTS.md            项目级行为规则与证据边界
-review_dashboard.html  审阅页面
-```
-
-## 维护与检查
-
-七个共享方法论 Skill 的维护约定是：**修改 `04_skills/`，审阅后同步到 `.agents/skills/`，两处一起提交**。仅在运行目录中存在的辅助 Skill 单独维护。新克隆的仓库不需要先强制同步。
+新课程先暂存：
 
 ```bash
-# 只读检查；缺失或不同返回非零退出码
-python3 scripts/sync_codex_skills.py --check
-
-# 预览，不写入文件
-python3 scripts/sync_codex_skills.py --dry-run
-
-# 默认只补缺失文件；发现已有文件不同则整轮停止写入
-python3 scripts/sync_codex_skills.py
-
-# 仅在确认兼容源内容应覆盖同名目标文件后使用
-python3 scripts/sync_codex_skills.py --force
-
-# 维护脚本测试，不调用模型
-python3 -m unittest discover -s tests -v
+python scripts/scaffold_new_course.py --title "新课程" --transcript /path/to/transcript.txt
 ```
 
-同步不会删除目标目录独有的文件或 Skill；重命名、删除和双向合并仍需人工审阅。`--check` 仅比较同步源包含的文件，不是完整目录镜像检查。
+脚本只登记，不自动校对、提取、授权或发布。已登记 ID 或相同稿件拒绝重复创建；失败后按提示处理，不删除仍可能被使用的锁。见 [接入 SOP](08_ops/INCREMENTAL_INGESTION_SOP.md)。
 
-`verify_codex_setup.py` 的 `PASS` 只代表基本文件与 Skill 元信息检查通过；单元测试通过也不代表模型回答正确。行为回归需要按 [评测说明](06_evals/README.md) 另行执行并记录结果。
+真实行为评测需要选定宿主和模型。可先生成隔离输入，再使用宿主适配命令；评分记录绑定资产和题库摘要，缺题、低分、失效引用或严重越界均不通过。见 [评测说明](06_evals/README.md)。
 
-新增课程从 [增量接入 SOP](08_ops/INCREMENTAL_INGESTION_SOP.md) 开始，发布前检查 [发布清单](08_ops/RELEASE_CHECKLIST.md)。个人资料只放入明确授权的本地位置；`.gitignore` 不是访问控制，也不会移除已经提交的资料。
+```bash
+python scripts/assets.py prepare-eval
+python scripts/assets.py run-evals --timeout 120 -- /absolute/path/to/host-adapter
+python scripts/assets.py grade-eval /path/to/scored-report.json
+```
+
+公共发布默认被阻止；只有精确证据、授权状态、命名审批和同版本行为报告都满足要求时，`build --public --approval ... --report ...` 才能成功。不要为了让发布通过，修改授权或评分为未经确认的值。
+
+架构决策与迁移边界见 [架构说明](08_ops/ARCHITECTURE.md)，贡献流程见 [CONTRIBUTING.md](CONTRIBUTING.md)，变更见 [CHANGELOG.md](CHANGELOG.md)。

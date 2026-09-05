@@ -3,6 +3,9 @@
   classification: analogy_marketing
   use_policy: 不得作为能力事实；只可解释为“把智能体当作需要交代背景的能力型同事”的比喻。
   source_refs:
+  - XP-T-001
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-001#P026-P027
   - XP-T-003#P001-P002
 - id: XP-CL-002
@@ -10,12 +13,17 @@
   classification: platform_dependent
   use_policy: 改写为“重要互动应被结构化记录；是否自动长期保存需按平台验证”。
   source_refs:
+  - XP-T-001
+  legacy_source_refs:
   - XP-T-001#P014-P024
 - id: XP-CL-003
   claim: 数据量比天大/力大出奇迹
   classification: heuristic
   use_policy: 保留“覆盖充分”的方法；同时加入质量、隐私、去重和过期治理。
   source_refs:
+  - XP-T-001
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-001#P028-P036
   - XP-T-002#P029-P033
 - id: XP-CL-004
@@ -23,12 +31,16 @@
   classification: unverified_comparative
   use_policy: 不得当作心理测量事实；只作为用户提供的参考材料。
   source_refs:
+  - XP-T-001
+  legacy_source_refs:
   - XP-T-001#P032-P036
 - id: XP-CL-005
   claim: 免费豆包一定使用很蠢的模型且没读材料
   classification: unverified_product_claim
   use_policy: 排除；只能描述演示者在该次演示中的主观观察。
   source_refs:
+  - XP-T-001
+  legacy_source_refs:
   - XP-T-001#P058-P066
   - XP-T-001#P087-P089
 - id: XP-CL-006
@@ -36,18 +48,25 @@
   classification: rhetorical_prediction
   use_policy: 排除确定性断言；改为“复杂长期任务更适合带上下文、工具和流程的智能体”。
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P002-P004
 - id: XP-CL-007
   claim: 五步法由哈佛商学院教授
   classification: source_attribution_unverified
   use_policy: 可写“讲者称”，不能独立认证。
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P007-P008
 - id: XP-CL-008
   claim: 普通人不需要技术，技术操作都不重要
   classification: scope_limited_opinion
   use_policy: 改写为“首版可先用无代码方法验证；数据、安全、集成和生产化仍需技术”。
   source_refs:
+  - XP-T-001
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-001#P008-P010
   - XP-T-001#P025
   - XP-T-003#P062-P064
@@ -56,18 +75,24 @@
   classification: pricing_and_marketing_claim
   use_policy: 排除；价格、额度和性能属于易变平台信息。
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P049-P051
 - id: XP-CL-010
   claim: 未来公司一定越来越小，部分人会迅速被淘汰
   classification: prediction
   use_policy: 仅可作为讲者观点，不作为事实或威胁用户的语言。
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P048-P051
 - id: XP-CL-011
   claim: 频率×判断力×人际能力就是变现公式
   classification: metaphor_heuristic
   use_policy: 可作诊断框架，不得伪装成可计算收益模型。
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P065-P074
   - XP-T-003#P124-P128
 - id: XP-CL-012
@@ -75,30 +100,41 @@
   classification: oversimplification
   use_policy: 改写为“高质量、适用且经验证的模型储备可提高判断与沟通效率”。
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P067-P070
 - id: XP-CL-013
   claim: AI 是新时代的英语，行业和专业会消失
   classification: metaphor_and_prediction
   use_policy: 保留通用能力比喻，排除“会消失”的确定性结论。
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P094-P101
 - id: XP-CL-014
   claim: 烧更多 token 就更容易拿到正确答案
   classification: unverified_causal_claim
   use_policy: 改写为“更多受控实验可以增加搜索覆盖，但必须有评测、预算与停止条件”。
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P102-P106
 - id: XP-CL-015
   claim: 工资不会带来财富跃迁，副业创业才会
   classification: normative_financial_claim
   use_policy: 不得作为个人财务结论；只保留“先稳住现金流、再小规模验证副业”的谨慎路径。
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P118-P121
 - id: XP-CL-016
   claim: 贬损竞品、低认知人群、员工或特定职业
   classification: demeaning_rhetoric
   use_policy: 全部排除，不进入人格、回答风格或评价标准。
   source_refs:
+  - XP-T-001
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-001#P087-P101
   - XP-T-003#P049-P051
   - XP-T-003#P086-P101
@@ -107,19 +143,24 @@
   classification: high_risk_overreach
   use_policy: 排除；受资质与法律监管的职业必须遵守专业要求。
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P113-P115
 - id: XP-CL-018
   claim: 商业计划书十分钟可完成且非常可靠
   classification: case_specific_unverified
   use_policy: 可描述生成速度的演示，但质量必须独立核查。
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P052-P059
 - id: XP-CL-019
   claim: MBTI、盖洛普和霍兰德测评可准确确定才干、岗位与转型方向
   classification: psychometric_overreach
   use_policy: 只作自我反思线索；必须与真实经历、结果、反馈和约束交叉验证，不作确定性职业诊断。
   source_refs:
-  - XP-T-004#P020-P071
+  - XP-T-004#P020-P036
+  - XP-T-004#P038-P071
 - id: XP-CL-020
   claim: 两项前 20% 能力相乘就能成为前 4%，三项叠加则接近前 1%
   classification: mathematical_heuristic
@@ -169,7 +210,11 @@
   classification: time_sensitive_external_claim
   use_policy: 所有具体公司、市占率、平台活跃度、房价、城市产业和政策在当前决策中必须重新查证。
   source_refs:
-  - XP-T-004#P388-P567
+  - XP-T-004#P388-P422
+  - XP-T-004#P424-P466
+  - XP-T-004#P468-P503
+  - XP-T-004#P505-P545
+  - XP-T-004#P547-P567
 - id: XP-CL-028
   claim: 以性格、职业、年龄、学历、城市或收入对人做贬损性和宿命式判断
   classification: demeaning_and_stereotyping_rhetoric

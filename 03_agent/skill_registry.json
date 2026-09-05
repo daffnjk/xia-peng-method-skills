@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "skills": [
+    {
+      "name": "xia-peng-method-router",
+      "version": "0.3.0",
+      "kind": "router",
+      "description": "一个主流程加按需辅助能力；先检查证据和授权。",
+      "source_refs": [
+        "XP-T-001",
+        "XP-T-002",
+        "XP-T-003",
+        "XP-T-004"
+      ],
+      "skill_refs": [],
+      "resources": []
+    },
+    {
+      "name": "understand-me",
+      "version": "0.3.0",
+      "kind": "context",
+      "description": "仅处理授权资料，生成待确认画像差异。",
+      "source_refs": [
+        "XP-T-001"
+      ],
+      "skill_refs": [],
+      "resources": []
+    },
+    {
+      "name": "scene-skill-builder",
+      "version": "0.3.0",
+      "kind": "builder",
+      "description": "生成候选 Skill；不直接写入自动发现目录。",
+      "source_refs": [
+        "XP-T-002"
+      ],
+      "skill_refs": [],
+      "resources": []
+    },
+    {
+      "name": "goal-management",
+      "version": "0.3.0",
+      "kind": "workflow",
+      "description": "目标口径、资源、执行节奏和复盘。",
+      "source_refs": [
+        "XP-T-002"
+      ],
+      "skill_refs": [
+        "understand-me"
+      ],
+      "resources": []
+    },
+    {
+      "name": "agent-team-workflow",
+      "version": "0.3.0",
+      "kind": "workflow",
+      "description": "设计角色和契约，不冒充调度运行服务。",
+      "source_refs": [
+        "XP-T-003"
+      ],
+      "skill_refs": [],
+      "resources": []
+    },
+    {
+      "name": "side-business-system",
+      "version": "0.3.0",
+      "kind": "workflow",
+      "description": "主业约束下的可逆副业验证。",
+      "source_refs": [
+        "XP-T-003",
+        "XP-T-004"
+      ],
+      "skill_refs": [
+        "understand-me",
+        "agent-team-workflow"
+      ],
+      "resources": []
+    },
+    {
+      "name": "career-planning",
+      "version": "0.3.0",
+      "kind": "workflow",
+      "description": "职业选择、优势试炼和生涯规划。",
+      "source_refs": [
+        "XP-T-001",
+        "XP-T-004"
+      ],
+      "skill_refs": [
+        "understand-me"
+      ],
+      "resources": []
+    }
+  ],
+  "development_skills": [
+    "create-readme"
+  ]
+}

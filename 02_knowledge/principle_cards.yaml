@@ -14,6 +14,8 @@
   - “自模型”是本材料中的自定义术语，不等同于通用学术定义
   - 不要把平台能力类比当作性能事实
   source_refs:
+  - XP-T-001
+  legacy_source_refs:
   - XP-T-001#P006-P011
   - XP-T-001#P023-P024
 - id: XP-P-002
@@ -31,6 +33,8 @@
   guardrails:
   - 该分类是来源内部框架；对外产品文档应解释术语
   source_refs:
+  - XP-T-001
+  legacy_source_refs:
   - XP-T-001#P007-P010
 - id: XP-P-003
   title: 先让智能体懂你
@@ -52,6 +56,8 @@
   - 用户画像中的推断不得写成事实
   - 敏感信息应最小化与分级存储
   source_refs:
+  - XP-T-001
+  legacy_source_refs:
   - XP-T-001#P026-P041
   - XP-T-001#P075-P081
 - id: XP-P-004
@@ -71,6 +77,8 @@
   - 人格测评只能作为参考，不作为确定性诊断
   - 不得默认所有历史对话都会被平台永久保存
   source_refs:
+  - XP-T-001
+  legacy_source_refs:
   - XP-T-001#P011-P014
   - XP-T-001#P028-P036
 - id: XP-P-005
@@ -91,6 +99,9 @@
   - 只有平台确实保存并可检索的数据才会形成长期上下文
   - 高频低质量数据可能造成污染
   source_refs:
+  - XP-T-001
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-001#P014-P024
   - XP-T-002#P003-P004
 - id: XP-P-006
@@ -111,6 +122,9 @@
   - 数量不能替代数据质量、相关性和隐私控制
   - 最终执行层仍需收敛优先级
   source_refs:
+  - XP-T-001
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-001#P028-P036
   - XP-T-002#P027-P033
 - id: XP-P-007
@@ -129,6 +143,8 @@
   guardrails:
   - 这是交互比喻，不应把模型描述成真人或具有人格权利
   source_refs:
+  - XP-T-001
+  legacy_source_refs:
   - XP-T-001#P026-P028
   - XP-T-001#P037-P041
 - id: XP-P-008
@@ -149,6 +165,9 @@
   - 高风险操作不能仅靠“先试”
   - 语音识别错误必须校验专有名词、数字与权限
   source_refs:
+  - XP-T-001
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-001#P041-P046
   - XP-T-002#P021-P022
 - id: XP-P-009
@@ -170,6 +189,8 @@
   - 关联不等于因果
   - 不能凭相似词自动合并不同主体或时期
   source_refs:
+  - XP-T-001
+  legacy_source_refs:
   - XP-T-001#P050-P055
 - id: XP-P-010
   title: 建议必须个性化、具体、可落地
@@ -189,6 +210,8 @@
   - 不得用未经确认的画像推断替代事实
   - 用户可选择关闭个性化
   source_refs:
+  - XP-T-001
+  legacy_source_refs:
   - XP-T-001#P075-P081
 - id: XP-P-011
   title: 画像与成果持续更新
@@ -207,6 +230,8 @@
   - 自动更新前应获得授权
   - 简历成果必须可核验，不能把计划当结果
   source_refs:
+  - XP-T-001
+  legacy_source_refs:
   - XP-T-001#P075-P081
 - id: XP-P-012
   title: 场景型 Skill 优先于风格型 Skill
@@ -224,6 +249,9 @@
   guardrails:
   - 风格可以作为次级约束，但不能代替任务结构
   source_refs:
+  - XP-T-002
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-002#P008-P012
   - XP-T-003#P083-P084
 - id: XP-P-013
@@ -241,6 +269,8 @@
   guardrails:
   - 结果应可观察或可验证，避免只有情绪形容词
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P024-P033
   - XP-T-002#P038-P041
 - id: XP-P-014
@@ -260,6 +290,9 @@
   - 只写模型名称但没有定义或来源，可能造成模型误用
   - 现有逐字稿未提供多数模型的完整定义
   source_refs:
+  - XP-T-002
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-002#P012-P017
   - XP-T-002#P042-P047
   - XP-T-003#P067-P070
@@ -279,6 +312,8 @@
   guardrails:
   - 四步或五步不是固定教条，取决于模型与任务复杂度
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P014-P021
   - XP-T-002#P042-P047
 - id: XP-P-016
@@ -297,6 +332,8 @@
   guardrails:
   - 不要让后一步自动执行不可逆操作，除非有明确授权
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P017-P020
   - XP-T-002#P048-P052
 - id: XP-P-017
@@ -316,6 +353,8 @@
   guardrails:
   - 反馈不等于真理，必须区分偏好、事实和结果数据
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P053-P057
 - id: XP-P-018
   title: 没有标准答案，但有质量标准
@@ -333,6 +372,8 @@
   guardrails:
   - “多”只是一个标准，还需正确性、简洁性和安全性
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P027-P033
 - id: XP-P-019
   title: 用独立项目隔离上下文
@@ -349,6 +390,8 @@
   guardrails:
   - 这是上下文管理策略，不代表平台一定完全隔离数据
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P034-P037
 - id: XP-P-020
   title: 目标管理先补情境智慧
@@ -367,6 +410,8 @@
   guardrails:
   - 人际关系信息应谨慎处理，避免未经证实的评价
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P048-P052
   - XP-T-002#P063-P071
 - id: XP-P-021
@@ -385,6 +430,8 @@
   guardrails:
   - 模型不得自行补造业务数据
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P069-P074
 - id: XP-P-022
   title: 目标管理结果要沉淀
@@ -403,6 +450,8 @@
   guardrails:
   - 只记录已完成、可证明的成果
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P049-P057
   - XP-T-002#P075-P076
 - id: XP-P-023
@@ -421,6 +470,8 @@
   guardrails:
   - 角色数量应由任务复杂度决定，不为多 Agent 而多 Agent
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P003-P008
   - XP-T-003#P023-P026
 - id: XP-P-024
@@ -438,6 +489,8 @@
   guardrails:
   - 实际任务常同时包含三种缺口
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P005-P010
 - id: XP-P-025
   title: 基础工作流：信息→想法→执行→结果
@@ -454,6 +507,8 @@
   guardrails:
   - 没有验收标准的串联只会放大错误
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P031-P036
 - id: XP-P-026
   title: 先试跑，再选择人在环上还是环中
@@ -472,6 +527,8 @@
   - 原转写术语存在识别歧义；这里按其定义工程化归一
   - 不可逆、高风险和对外发布默认需要人工审批
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P033-P039
 - id: XP-P-027
   title: 多 Agent 沟通必须明确寻址
@@ -487,6 +544,8 @@
   guardrails:
   - 这是平台相关操作，不应推广成所有系统的通用事实
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P027-P030
 - id: XP-P-028
   title: 用外部案例与知识增强判断
@@ -505,6 +564,8 @@
   - 案例类比不等于当前项目一定成立
   - 必须检查来源质量和适用条件
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P075-P085
   - XP-T-003#P091-P093
 - id: XP-P-029
@@ -524,6 +585,8 @@
   - 模型数量不等于模型质量
   - 外部知识不能替代责任主体
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P060-P070
 - id: XP-P-030
   title: 思维模型是高密度沟通压缩器
@@ -540,6 +603,9 @@
   guardrails:
   - 不能假设模型一定知道某个同名框架的正确版本
   source_refs:
+  - XP-T-002
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-002#P014-P017
   - XP-T-003#P067-P070
 - id: XP-P-031
@@ -558,6 +624,8 @@
   - 这是演讲中的启发式公式，不是可直接量化的经济模型
   - 应避免贬损性的人际分类
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P065-P074
   - XP-T-003#P124-P128
 - id: XP-P-032
@@ -577,8 +645,10 @@
   - 这是一般性策略，不适用于所有个人财务和职业情境
   - 重大决策需结合个人风险承受能力
   source_refs:
-  - XP-T-003#P118-P121
+  - XP-T-003
   - XP-T-004#P108-P111
+  legacy_source_refs:
+  - XP-T-003#P118-P121
 - id: XP-P-033
   title: 把 AI 作为通用能力而非单一岗位工具
   evidence_type: explicit
@@ -595,6 +665,8 @@
   - “行业和专业会消失”属于来源中的预测，不应写成确定事实
   - 跨专业任务仍受资质、法律和专业能力约束
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P094-P101
 - id: XP-P-034
   title: 用闭环加速可逆实验
@@ -615,9 +687,11 @@
   - 更多迭代不保证更正确
   - 必须限制预算、权限与错误传播
   source_refs:
+  - XP-T-003
+  - XP-T-004#P075-P105
+  legacy_source_refs:
   - XP-T-003#P035-P039
   - XP-T-003#P102-P106
-  - XP-T-004#P075-P105
 - id: XP-P-035
   title: 输出后核查数据
   evidence_type: explicit
@@ -633,6 +707,8 @@
   guardrails:
   - 不得因呈现精美就降低核验标准
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P077-P079
 - id: XP-P-036
   title: 职业规划先内后外、逐层嵌套
@@ -743,7 +819,8 @@
   - 不把海投、降薪或试用期当作无风险实验
   - 涉及收入、签证、家庭和医保时必须先做个人风险评估
   source_refs:
-  - XP-T-004#P169-P216
+  - XP-T-004#P169-P170
+  - XP-T-004#P172-P216
 - id: XP-P-042
   title: 优势强化是能力叠加、输出、赋能与标签的闭环
   evidence_type: explicit
@@ -761,7 +838,8 @@
   - “20%×20%=4%”是启发式类比，不能当作人才排名统计
   - 不得用夸大、冒用大品牌或虚构经历来打造标签
   source_refs:
-  - XP-T-004#P218-P296
+  - XP-T-004#P218-P282
+  - XP-T-004#P284-P296
 - id: XP-P-043
   title: 专家价值可来自跨域接口能力
   evidence_type: explicit
@@ -827,7 +905,8 @@
   - 课程录制时的公司、行业和城市例子已过时，现在使用必须重新核验
   - S 曲线和波士顿矩阵是候选框架，不代替尽调
   source_refs:
-  - XP-T-004#P388-P466
+  - XP-T-004#P388-P422
+  - XP-T-004#P424-P466
   - XP-T-004#P468-P503
 - id: XP-P-047
   title: 学历选择应解决已定义的当下问题

@@ -1,0 +1,6 @@
+{
+  "asset_digest": "填写实际资产摘要，不使用占位符发布",
+  "report_sha256": "填写实际完整评分报告的SHA-256",
+  "public_distribution": false,
+  "reviewer": ""
+}

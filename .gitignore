@@ -24,3 +24,12 @@ htmlcov/
 .DS_Store
 Thumbs.db
 *.swp
+
+# Generated builds and local transactional state
+dist/
+.asset-build-*/
+.dist-backup/
+01_source/.ingestion.lock
+01_source/.intake-*/
+01_source/.manifest-*
+08_ops/skill_candidates/

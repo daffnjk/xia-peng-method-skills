@@ -56,3 +56,19 @@ XP-T-003,慢over the loop,Human-on-the-loop〔原转写疑似“human/man over t
 XP-T-003,慢。in the loop,Human-in-the-loop〔待音频核验〕,low,1,常见术语
 XP-T-003,新博,辛博,high,1,人名上下文
 XP-T-003,股价已经搭建,骨架已经搭建,high,1,商业计划书语境
+XP-T-004,MPV,MVP,high,2,模型名与后文一致
+XP-T-004,试列,试炼,high,1,全课核心术语
+XP-T-004,霍乱德,霍兰德,high,1,人名与职业兴趣模型
+XP-T-004,盖乐普/盖勒普,盖洛普,high,4,专有名词统一
+XP-T-004,盖洛普优势识别20/识别720,盖洛普优势识别器 2.0,medium,2,书名疑似指 StrengthsFinder 2.0
+XP-T-004,manter/man ter/matter/慢ter,mentor,high,9,英文术语与上下文定义明确
+XP-T-004,非卖/菲曼,费曼,high,3,费曼学习法
+XP-T-004,沟通12家,沟通12讲,high,3,课程数量语境
+XP-T-004,男儿正确,难而正确,high,1,固定表达与上下文
+XP-T-004,一岗资源,异岗资源,high,4,跨职能同事语境
+XP-T-004,售狗/受购,瘦狗,high,5,波士顿矩阵类型
+XP-T-004,cash c/cash CA,cash cow,high,2,波士顿矩阵术语
+XP-T-004,调限制/条限制,条线制,high,5,组织结构语境
+XP-T-004,事业布置,事业部制,high,3,组织结构语境
+XP-T-004,中国第一线城市,中国低线城市,high,3,上下文为城市梯度与时间差
+XP-T-004,世界应用演讲比赛,世界英语演讲比赛,high,1,前文自述一致

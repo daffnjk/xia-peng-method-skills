@@ -15,6 +15,7 @@ expected = {
     "goal-management",
     "agent-team-workflow",
     "side-business-system",
+    "career-planning",
 }
 found = set()
 
@@ -38,6 +39,8 @@ for rel in [
     "01_source/raw/XP-T-001_raw.txt",
     "01_source/raw/XP-T-002_raw.txt",
     "01_source/raw/XP-T-003_raw.txt",
+    "01_source/raw/XP-T-004_raw.txt",
+    "01_source/reviewed/XP-T-004_reviewed.txt",
     "06_evals/evals.jsonl",
     "08_ops/INCREMENTAL_INGESTION_SOP.md",
 ]:

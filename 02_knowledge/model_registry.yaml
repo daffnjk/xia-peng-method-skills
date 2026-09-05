@@ -17,6 +17,8 @@
   source_refs:
   - XP-T-002#P044-P045
   - XP-T-002#P069-P071
+  - XP-T-004#P246-P247
+  - XP-T-004#P565-P566
 - model_id: XP-M-004
   name: OKR
   source_definition: 仅作为目标拆解模型被提及
@@ -71,11 +73,12 @@
   - XP-T-003#P045-P058
 - model_id: XP-M-012
   name: MVP
-  source_definition: 用于快速验证和四周推进，定义未提供
-  status: external_definition_required
+  source_definition: 用于快速验证；XP-T-004 将其用于优势试炼，要求先做、测量、学习改进并循环。
+  status: partially_source_defined
   source_refs:
   - XP-T-003#P045-P058
   - XP-T-003#P091-P093
+  - XP-T-004#P075-P105
 - model_id: XP-M-013
   name: 单位经济模型
   source_definition: 用于投入、产出、成本测算，公式未提供
@@ -97,3 +100,89 @@
   source_refs:
   - XP-T-003#P077-P078
   - XP-T-003#P091-P093
+- model_id: XP-M-016
+  name: 职场优势公式
+  source_definition: 职场优势=才干×投入；投入包括时间和资源，擅长需要用结果验证。
+  status: source_defined_heuristic
+  source_refs:
+  - XP-T-004#P012-P020
+  - XP-T-004#P149-P155
+- model_id: XP-M-017
+  name: 霍兰德职业兴趣模型
+  source_definition: 课程用“人/事”与“行动/思考”解释六类型，并主张相邻类型较易迁移、对角类型较难。
+  status: source_interpretation_external_verification_required
+  source_refs:
+  - XP-T-004#P038-P059
+  - XP-T-004#P354-P363
+- model_id: XP-M-018
+  name: Build-Measure-Learn 试炼循环
+  source_definition: 先干起来（Build），再用客观结果、他人反馈和主观感受测量（Measure），然后反思下一步与改进（Learn）并循环。
+  status: source_defined
+  source_refs:
+  - XP-T-004#P075-P105
+- model_id: XP-M-019
+  name: 职场能力同心圆
+  source_definition: 内圈为自我管理，中圈为人际与思维，外圈为领导团队；课程用 1—5、5—10、10—15 年作经验性阶段。
+  status: source_defined_heuristic
+  source_refs:
+  - XP-T-004#P125-P143
+- model_id: XP-M-020
+  name: 职业连续性跳槽阶梯
+  source_definition: 从现岗找长板、同公司转岗、同岗同行业，到同岗异行业、同行业异岗，再到异岗异行业异地，同时变化的变量越多越难。
+  status: source_defined
+  source_refs:
+  - XP-T-004#P172-P216
+- model_id: XP-M-021
+  name: 优势强化四步
+  source_definition: 优势叠加、输出倒逼输入、分享赋能人脉、形成身份标签，并再反过来强化优势。
+  status: source_defined
+  source_refs:
+  - XP-T-004#P218-P296
+- model_id: XP-M-022
+  name: 费曼学习法（课程版）
+  source_definition: 先定义学习目标，带问题搜索并分类以理解，通过教别人输出，回顾表达，最后简化和压缩知识。
+  status: source_defined_external_model
+  source_refs:
+  - XP-T-004#P244-P260
+- model_id: XP-M-023
+  name: 邓巴数人脉分层
+  source_definition: 课程使用约 150 人的关系容量和同心圆分层，并区分核心圈的价值观连接与外圈的需求/利益交换。
+  status: source_interpretation_external_verification_required
+  source_refs:
+  - XP-T-004#P261-P282
+- model_id: XP-M-024
+  name: S 曲线行业周期
+  source_definition: 把行业分为初始期 T1、发展期 T2 和成熟期 T3，分别用技术、公司数量、组织导向和用户导向等特征辅助判断。
+  status: source_defined_external_model
+  source_refs:
+  - XP-T-004#P388-P422
+- model_id: XP-M-025
+  name: 波士顿矩阵（职业选择迁移用法）
+  source_definition: 用行业需求增长和公司市场占有率/知名度定性划分金牛、明星、问题与瘦狗公司，辅助设计迁移路径。
+  status: source_adapted_external_model
+  source_refs:
+  - XP-T-004#P424-P466
+- model_id: XP-M-026
+  name: T/π 型人才路径
+  source_definition: T 型先发展专业深度再扩展管理；π 型在此基础上再建一项专业深度，与优势叠加对应。
+  status: source_defined_external_model
+  source_refs:
+  - XP-T-004#P468-P470
+- model_id: XP-M-027
+  name: 房价×支付力城市矩阵
+  source_definition: 课程以房价高低与居民支付力高低定性分析城市，并结合产业集聚、通勤、线上协作和异地收入考察。
+  status: source_defined_heuristic
+  source_refs:
+  - XP-T-004#P505-P545
+- model_id: XP-M-028
+  name: 简历品格与墓碑品格
+  source_definition: 简历品格表示市场可识别、可获得工作的能力与成就；墓碑品格表示希望终身被记住的人格与意义。
+  status: source_defined_external_concept
+  source_refs:
+  - XP-T-004#P569-P580
+- model_id: XP-M-029
+  name: 第二曲线生涯迁移
+  source_definition: 在旧曲线见顶前后开启新曲线，接受短期下降、归零与重新攀爬，用长期意义和已累积优势引导。
+  status: source_defined_external_concept
+  source_refs:
+  - XP-T-004#P569-P587

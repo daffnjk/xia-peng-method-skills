@@ -114,3 +114,74 @@
   use_policy: 可描述生成速度的演示，但质量必须独立核查。
   source_refs:
   - XP-T-003#P052-P059
+- id: XP-CL-019
+  claim: MBTI、盖洛普和霍兰德测评可准确确定才干、岗位与转型方向
+  classification: psychometric_overreach
+  use_policy: 只作自我反思线索；必须与真实经历、结果、反馈和约束交叉验证，不作确定性职业诊断。
+  source_refs:
+  - XP-T-004#P020-P071
+- id: XP-CL-020
+  claim: 两项前 20% 能力相乘就能成为前 4%，三项叠加则接近前 1%
+  classification: mathematical_heuristic
+  use_policy: 仅保留“稀缺能力组合可形成差异化”；排名独立性、人群分布和市场回报未被证明。
+  source_refs:
+  - XP-T-004#P221-P240
+  - XP-T-004#P298-P306
+- id: XP-CL-021
+  claim: 职场 1—5 年只练自我管理、5—10 年做专家或管理、10—15 年必须发展领导力，否则会落后或被淘汰
+  classification: normative_stage_generalization
+  use_policy: 改写为“按基础能力→专业/人际长板→更大责任范围检查”；年限只是来源中的经验区间，不作年龄判决。
+  source_refs:
+  - XP-T-004#P125-P143
+  - XP-T-004#P159-P168
+- id: XP-CL-022
+  claim: 99% 大企业核心岗位依赖内推，不在公开市场招聘
+  classification: unsupported_statistic
+  use_policy: 只保留“弱关系和内推可以是求职渠道”；不引用 99% 比例，也不忽略公开招聘、猎头和校招。
+  source_refs:
+  - XP-T-004#P208-P213
+- id: XP-CL-023
+  claim: 学费越贵越好，高学费可自动解决人脉和圈层问题
+  classification: financial_and_education_overgeneralization
+  use_policy: 排除“越贵越好”；教育决策需核验课程质量、资质、就业支持、总成本、债务和替代路径。
+  source_refs:
+  - XP-T-004#P195-P207
+- id: XP-CL-024
+  claim: 粉丝数可推算固定月收入，收入会按工资、工时、管理、知识、股权的固定阶梯上升
+  classification: unverified_financial_model
+  use_policy: 只作收入来源多样化的盘点框架；不预测收入、不使用“躺赚”承诺，必须另做税务、风险和单位经济分析。
+  source_refs:
+  - XP-T-004#P320-P351
+- id: XP-CL-025
+  claim: 一生抓住一次行业周期就能小康，两次就能财富自由，三次就能扬名立万
+  classification: unsupported_wealth_prediction
+  use_policy: 完全排除结果承诺；只保留“行业周期会影响职业机会，需与个人优势和风险匹配”。
+  source_refs:
+  - XP-T-004#P388-P393
+- id: XP-CL-026
+  claim: 人的心智只能容纳 150 个关系，且朋友必然按 5/50/100 固定分层
+  classification: external_model_oversimplification
+  use_policy: 可作人脉分层的可选启发，不当作个人心智极限或固定配额。
+  source_refs:
+  - XP-T-004#P261-P272
+- id: XP-CL-027
+  claim: 对特定公司、行业、城市、平台、房价和就业机会的课程判断现在仍然成立
+  classification: time_sensitive_external_claim
+  use_policy: 所有具体公司、市占率、平台活跃度、房价、城市产业和政策在当前决策中必须重新查证。
+  source_refs:
+  - XP-T-004#P388-P567
+- id: XP-CL-028
+  claim: 以性格、职业、年龄、学历、城市或收入对人做贬损性和宿命式判断
+  classification: demeaning_and_stereotyping_rhetoric
+  use_policy: 排除对“平庸、懒惰、公主心丫鬟命、脑子抽了”等语言的模仿；将其改写为可观察的能力、投入、约束和风险。
+  source_refs:
+  - XP-T-004#P022-P028
+  - XP-T-004#P121-P168
+  - XP-T-004#P221-P240
+  - XP-T-004#P547-P567
+- id: XP-CL-029
+  claim: 只要找到优势并投入，职业结果一定不会差
+  classification: success_guarantee
+  use_policy: 改写为“优势、投入和匹配可作为提高职业适配度的候选因素”；不保证工作、收入或幸福结果。
+  source_refs:
+  - XP-T-004#P071-P073

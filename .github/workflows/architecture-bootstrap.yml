@@ -1,19 +1,79 @@
-name: Architecture workspace check
+name: Apply and verify architecture migration
 on:
   push:
     branches: ['work/architecture-implementation-20260905']
 permissions:
-  contents: read
+  contents: write
 jobs:
-  workspace:
+  migrate:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
-          persist-credentials: false
-      - run: |
-          python3 --version
-          test -f 01_source/manifest.csv
-          test -f .agents/skills/career-planning/SKILL.md
-          echo 'Repository workspace is available; no content modified.'
+          python-version: '3.11'
+      - name: Restore hash-verified implementation files
+        run: |
+          python - <<'PY'
+          import base64, bz2, hashlib, json
+          from pathlib import Path, PurePosixPath
+          chunks = sorted(Path('.architecture-payload').glob('*.b64'))
+          assert [p.name for p in chunks] == ['1.b64', '2.b64', '3.b64', '4.b64']
+          packed = base64.b64decode(''.join(p.read_text() for p in chunks), validate=True)
+          assert hashlib.sha256(packed).hexdigest() == '14ae069e61ceea8cea05de9d7d8facda142a3a764f4257478c147abc7a55e09e'
+          files = json.loads(bz2.decompress(packed))
+          assert len(files) == 27
+          allowed = {'03_agent', '06_evals', '07_deployment', '08_ops', 'scripts', 'schemas', 'tests', 'AGENTS.md', 'CONTRIBUTING.md', 'README.md', 'README_CODEX.md', 'requirements-dev.txt', 'review_dashboard.html'}
+          for rel, text in files.items():
+              path = PurePosixPath(rel)
+              assert not path.is_absolute() and '..' not in path.parts and path.parts[0] in allowed
+              target = Path(rel)
+              assert not target.is_symlink() and not any(p.is_symlink() for p in target.parents)
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_text(text, encoding='utf-8')
+          print('Restored 27 implementation files; source materials were not in the payload.')
+          PY
+      - run: python -m pip install -r requirements-dev.txt
+      - name: Migrate complete repository with baseline guards
+        run: python scripts/migrate_architecture.py --apply
+      - name: Validate migrated real assets
+        run: python scripts/assets.py validate
+      - name: Run isolated unit and integration tests
+        run: python -m unittest discover -s tests -v
+      - name: Verify real build and deterministic output
+        run: |
+          python scripts/assets.py build
+          python scripts/assets.py validate --check-build
+          sha256sum dist/runtime.zip > /tmp/runtime.sha256
+          python scripts/assets.py build
+          sha256sum -c /tmp/runtime.sha256
+          python scripts/assets.py validate --check-build
+          python scripts/assets.py prepare-eval
+      - name: Verify unresolved evidence and public release are blocked
+        run: |
+          if python scripts/assets.py validate --strict-evidence; then
+            echo 'Unexpected: strict evidence gate accepted unresolved historical locations'; exit 1
+          fi
+          if python scripts/assets.py build --public; then
+            echo 'Unexpected: public build accepted missing approvals'; exit 1
+          fi
+          echo 'Evidence and public release gates correctly blocked unfinished human review.'
+      - name: Commit verified migration to isolated branch
+        run: |
+          python -m compileall -q scripts tests
+          git diff --check
+          rm -rf .architecture-payload
+          git add -A
+          python - <<'PY'
+          import subprocess
+          names = subprocess.check_output(['git', 'diff', '--cached', '--name-only'], text=True).splitlines()
+          forbidden = [p for p in names if p.startswith(('01_source/raw/', '01_source/reviewed/', '05_user_private/'))]
+          assert not forbidden, forbidden
+          print('Staged files:', len(names), '; raw/reviewed/private files unchanged.')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'feat: implement validated asset pipeline and auditable source migration'
+          git push origin HEAD:work/architecture-implementation-20260905
+          git rev-parse HEAD

@@ -1,0 +1,43 @@
+name: Asset quality
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11', '3.13']
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install validation dependencies
+        run: python -m pip install -r requirements-dev.txt
+      - name: Validate canonical assets
+        run: python scripts/assets.py validate
+      - name: Run isolated engineering tests
+        run: python -m unittest discover -s tests -v
+      - name: Build and verify generated assets
+        run: |
+          python scripts/assets.py build
+          python scripts/assets.py validate --check-build
+          sha256sum dist/runtime.zip > /tmp/runtime.sha256
+          python scripts/assets.py build
+          sha256sum -c /tmp/runtime.sha256
+          python scripts/assets.py validate --check-build
+      - name: Check Python and whitespace
+        run: |
+          python -m compileall -q scripts tests
+          git diff --check
+      - name: Record verification boundary
+        run: echo 'Engineering checks only. Model behavior, source meaning, and publication rights require separate review.'

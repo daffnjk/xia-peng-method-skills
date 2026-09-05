@@ -1,0 +1,29 @@
+name: Locator diagnostics
+on:
+  push:
+    branches: ['work/architecture-implementation-20260905']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - run: |
+          python3 - <<'PY'
+          import re
+          from pathlib import Path
+          text = Path('01_source/reviewed/XP-T-004_reviewed.txt').read_text(encoding='utf-8-sig')
+          line = {int(n) for n in re.findall(r'^\[XP-T-004#P(\d+)\]', text, re.M)}
+          anywhere = {int(n) for n in re.findall(r'\[XP-T-004#P(\d+)\]', text)}
+          print('LINE_ANCHOR_COUNT', len(line), 'ALL_ANCHOR_COUNT', len(anywhere))
+          print('MISSING_LINE', sorted(set(range(1, 593)) - line))
+          print('MISSING_ANYWHERE', sorted(set(range(1, 593)) - anywhere))
+          for n in sorted(anywhere-line):
+              marker = f'[XP-T-004#P{n:03d}]'
+              start = text.index(marker)
+              print('PREFIX_CODEPOINTS', n, [hex(ord(c)) for c in text[max(0,start-3):start]])
+          PY

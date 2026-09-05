@@ -2,6 +2,24 @@
 05_user_private/*
 !05_user_private/README.md
 
+# Local evaluation answers may contain private context or course excerpts
+06_evals/results/
+
+# Local credentials; intentionally distributable examples remain visible
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Python local environments and generated files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
 # Local OS/editor noise
 .DS_Store
 Thumbs.db

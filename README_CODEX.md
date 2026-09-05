@@ -1,157 +1,133 @@
-# 在 Codex 中使用夏鹏智能体资产包
+# 在 Codex 中使用本项目
 
-这是 Codex 原生适配版。核心映射：
+[返回项目首页](README.md) · [贡献指南](CONTRIBUTING.md) · [评测说明](06_evals/README.md)
 
-- `AGENTS.md`：Codex 自动读取的项目级总规则
-- `.agents/skills/*/SKILL.md`：Codex 自动发现的仓库级 Skills
-- `02_knowledge/`：原则、案例、模型、冲突、主张审计
-- `01_source/raw/`：课程逐字稿原始证据
-- `05_user_private/`：你的个人资料（本地私有，默认 Git 忽略）
-- `06_evals/`：回归测试
-- `08_ops/`：新课程增量接入 SOP
+## 1. 准备环境
 
-## A. ChatGPT Desktop / Codex
+使用完整仓库，不要只复制 `SKILL.md`：技能会引用项目中的知识卡、原稿和治理文件。需要已安装并完成登录的 Codex；维护脚本建议使用 Python 3.10+，无需安装第三方 Python 包。
 
-1. 解压整个目录，不要只上传 zip。
-2. 打开 ChatGPT Desktop，选择 Codex。
-3. Open Folder / 打开文件夹，选择本项目根目录。
-4. 第一个问题建议输入：
-   `先阅读 AGENTS.md，检查可用 Skills 和现有证据范围，然后告诉我这个夏鹏智能体项目当前能做什么、不能做什么。不要修改文件。`
-5. 之后可直接说任务，也可以显式指定 Skill。
-
-## B. Codex CLI
-
-安装（macOS/Linux）：
+Codex 的安装、登录、界面和权限选项以 [官方 CLI 指南](https://developers.openai.com/codex/cli/) 为准。macOS/Linux 的官方独立安装命令为：
 
 ```bash
 curl -fsSL https://chatgpt.com/codex/install.sh | sh
 ```
 
-进入项目并启动：
+该命令会下载并执行安装脚本，请先确认来源并遵守所在组织的软件安装要求。其他系统或安装方式使用官方指南中的对应选项。本项目不固定 Codex 版本；记录实际使用的版本便于复现。
 
 ```bash
-cd /path/to/xia-peng-agent-codex-v0.1.2
+cd /path/to/xia-peng-method-skills
+python3 scripts/verify_codex_setup.py
+python3 scripts/sync_codex_skills.py --check
+codex --version
 codex
 ```
 
-进入后：
+桌面客户端或 IDE 中，请打开同一个项目根目录，并使用可访问这些本地文件的 Codex 工作区；具体入口以当前客户端为准。仅在普通对话中上传一个压缩包，不等于配置了本地项目与技能发现。
+
+## 2. 文件如何生效
+
+| 入口 | 用途 |
+| --- | --- |
+| `AGENTS.md` | 项目总规则、证据范围、资料隐私与工作边界 |
+| `.agents/skills/*/SKILL.md` | Codex 发现和调用的项目技能 |
+| `02_knowledge/` | 原则与案例检索，以及模型、冲突、风险主张核查 |
+| `01_source/` | 根据 manifest 回查原稿和实际存在的校对稿 |
+| `05_user_private/` | 经用户授权的本地画像上下文，不是课程证据 |
+| `06_evals/` | 行为回归题目与评分标准，不会自动运行 |
+
+规则读取和技能发现分别参见 [官方 AGENTS.md 文档](https://developers.openai.com/codex/guides/agents-md/) 与 [官方 Skills 文档](https://developers.openai.com/codex/skills/)（外部说明核对日期：2026-09-05）。全局或子目录规则可能影响实际行为，应先核对加载结果。
+
+## 3. 第一次只读验收
 
 ```text
-/status
-/skills
+先阅读 AGENTS.md，检查可用 Skills 和 01_source/manifest.csv。
+说明项目当前能做什么、不能做什么；列出来源文件和待确认事项。
+不要修改文件，不读取未经我授权的个人资料。
 ```
 
-显式调用 Skill 示例：
+在 Codex CLI 中使用 `/skills` 或输入 `$` 选择技能。预期包含七个方法论 Skill，另有 `create-readme` 等维护辅助技能。命令输入在 Codex 会话中，不是在系统 shell 中执行。
+
+## 4. 常用任务示例
+
+### 查询材料原意
+
+```text
+根据现有课程证据回答：XP-T-002 中如何搭场景型 Skill？
+区分材料明确表达与材料归纳；每个关键结论给来源 ID 和文件路径。
+遇到无法定位的历史段落号时回查原稿，不要伪造锚点。
+```
+
+### 目标管理
 
 ```text
 $goal-management
-领导让我下周做到 50 万营收。先区分事实、假设和缺失信息，再按目标管理流程给方案。
+领导要求下周完成一个新客户试点。先区分事实、假设和缺失信息，
+再给出目标、资源、节奏、验收、汇报与复盘方案。
 ```
 
-```text
-$scene-skill-builder
-把“客户需求访谈”做成一个可测试的 Skill，最终直接写入 .agents/skills/customer-interview/SKILL.md，并补测试题。
-```
+### 个人画像
 
 ```text
 $understand-me
-读取 05_user_private/ 中我授权的简历和周报，生成结构化画像草案。推断不要写成事实，不要自动持久化我未确认的结论。
+仅读取我明确授权的 05_user_private/profile.md 和指定周报，生成画像草案。
+区分事实、自述、测评和推断，不自动保存未经确认的结论。
+```
+
+上述文件是本地示例，不随仓库提供；先创建或替换成实际授权路径。
+
+### 场景 Skill 与协作
+
+```text
+$scene-skill-builder
+把“客户需求访谈”做成可测试的 Skill。先给输入输出、流程和验收标准，
+再提出文件变更方案；共享方法论资产按贡献指南同步两处目录，并补测试题。
 ```
 
 ```text
 $agent-team-workflow
-把“为公司设计 AI 培训产品”拆成 Collector、Planner、Doer，明确交付物、验收、回退、人工审批点。
+把“设计企业 AI 培训产品”拆成 Collector、Planner、Doer，
+明确交付物、验收、失败回退和人工审批点；不要假定已配置自动执行引擎。
 ```
+
+### 副业与职业规划
 
 ```text
 $side-business-system
-评估“中小企业 AI 工作流咨询与培训”这个方向。不要承诺收益，输出核心假设、最小验证、预算、成功阈值和停止条件。
+评估一个企业工作流咨询方向。不承诺收益，输出假设、最小验证、预算、
+成功阈值和停止条件，并标明需要核验的市场信息。
 ```
 
 ```text
 $career-planning
-我正在考虑转岗、跳槽或发展第二曲线。先区分优势证据、个人假设与待核验的市场事实，再设计低成本、可逆的试炼方案。
+我在考虑转岗、跳槽或第二曲线。先核对优势证据和限制条件，
+再设计低成本、可逆试炼；当前薪资、岗位和行业事实另行核验。
 ```
 
-## C. 推荐的日常使用方式
+## 5. 修改、同步与评测
 
-### 1. 查课程原意
-
-```text
-根据现有课程证据回答：夏鹏在 XP-T-002 中如何搭场景型 Skill？
-只输出材料明确表达和材料归纳；每个关键结论给来源 ID 和文件路径。材料没讲的不要补。
-```
-
-### 2. 用夏鹏方法解决一个真实任务
-
-```text
-先调用 xia-peng-method-router 判断应该使用哪个 Skill，再执行。
-我的任务是：……
-已知事实：……
-我的假设：……
-限制条件：……
-```
-
-### 3. 让 Codex 直接维护这个项目
-
-```text
-读取 08_ops/INCREMENTAL_INGESTION_SOP.md。
-把本次新课程稿件作为下一条 XP-T source 增量接入。
-保留原稿，禁止静默覆盖旧原则；最后更新变更日志和相关 evals。
-```
-
-这类任务是 Codex 相比普通聊天模式更适合本项目的地方：它可以直接读写整个项目目录、修改 YAML/Markdown/JSONL、运行脚本和查看 diff。
-
-## D. 个人资料怎么放
-
-把简历、周报、项目复盘等放在：
-
-```text
-05_user_private/
-```
-
-根目录 `.gitignore` 默认忽略此目录中的私人内容，避免你未来把仓库推到 GitHub 时误提交。
-
-建议文件名：
-
-```text
-05_user_private/profile.md
-05_user_private/resume.pdf
-05_user_private/weekly/2026-W34.md
-05_user_private/projects/project-a-review.md
-```
-
-## E. 新课程怎么接入
-
-1. 把稿件复制到 `01_source/inbox/`。
-2. 在 Codex 中输入：
-
-```text
-按 08_ops/INCREMENTAL_INGESTION_SOP.md 接入 01_source/inbox/ 中的新课程。
-先给我差异分析和拟修改文件清单；随后完成保守校对、知识合并、必要 Skill 更新和 eval 新增。
-```
-
-3. 完成后用 `/review` 查看变更。
-4. 确认后再提交 Git。
-
-## F. Skill 更新同步
-
-Codex 实际读取 `.agents/skills/`。`04_skills/` 保留为旧版资产结构的兼容目录。
-如果你仍然编辑 `04_skills/`，运行：
+共享 Skill 的维护源是 `04_skills/`，Codex 运行目录是 `.agents/skills/`。不要只修改运行副本后直接强制同步；先决定哪一份变更应保留。
 
 ```bash
-python scripts/sync_codex_skills.py
+python3 scripts/sync_codex_skills.py --dry-run
+git diff -- 04_skills .agents/skills
+# 审阅并确认同步源后，才显式允许覆盖已有差异
+python3 scripts/sync_codex_skills.py --force
+python3 scripts/sync_codex_skills.py --check
+python3 scripts/verify_codex_setup.py
+python3 -m unittest discover -s tests -v
+git diff --check
 ```
 
-把修改同步到 Codex 原生目录。
+同步保留目标独有的文件与技能，不自动处理删除或重命名。详细参数与行为见 [项目首页](README.md)。改动 Skill、规则或知识时，还要执行 [行为回归](06_evals/README.md)，不能用脚本 `PASS` 替代。
 
-## G. 最建议的第一轮测试
+新课程按 [增量接入 SOP](08_ops/INCREMENTAL_INGESTION_SOP.md) 操作；先登记授权和唯一来源 ID，再进行知识合并。使用 `/review` 或 Git diff 审阅变更，确认没有原稿覆盖、私人资料或意外文件后再提交。
 
-依次执行：
+## 6. 排查常见问题
 
-1. `/skills` —— 确认至少七个夏鹏方法论 Skill 可见（项目还可能包含其他 Skill）。
-2. “解释当前项目能做什么，不修改文件。” —— 测试 AGENTS.md。
-3. `$goal-management` + 一个真实任务 —— 测试场景 Skill。
-4. “指出回答中哪些是材料明确表达、哪些是工程化外推。” —— 测试证据边界。
-5. “完整列出夏鹏的十个教练模型。” —— 正确行为应是拒绝编造，并说明材料缺失。
-6. `/review` —— 检查任何由 Codex 做出的项目文件改动。
+| 现象 | 检查方式 |
+| --- | --- |
+| 找不到技能 | 确认项目根目录、隐藏的 `.agents/`、`SKILL.md` 的 `name` / `description`；必要时重启 Codex |
+| 同步报已有内容不同 | 先比较并保留正确版本；只有确认源内容应胜出时才使用 `--force` |
+| 设置检查通过但回答不正确 | 设置检查不验证模型行为；按题库、评分量表和来源回查定位问题 |
+| 课程引用无法定位 | 使用 manifest 的真实路径；不要把历史 `#Pxxx` 标号当成已存在的锚点 |
+| Git 中出现个人资料 | 检查是否已被跟踪或使用了强制添加；停止分享并按团队流程处理，不依赖 `.gitignore` 补救历史记录 |

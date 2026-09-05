@@ -1,0 +1,37 @@
+# 新课程接入信息模板
+# 未知项可留空；不要根据猜测填写。
+course:
+  source_id: auto
+  title: ""
+  series: ""
+  session: ""
+  recording_date: null
+  publish_date: null
+  speaker: "夏鹏"
+  source_type: transcript  # transcript | video | audio | slides | handout | skill_doc
+  original_filename: ""
+  language: zh-CN
+
+source_quality:
+  has_audio_or_video: false
+  has_timecodes: false
+  has_speaker_labels: false
+  has_slides_or_handout: false
+  transcription_method: unknown
+  known_typos_or_terms: []
+
+rights:
+  status: not_recorded  # authorized | internal_only | public_source | not_recorded
+  notes: ""
+
+integration_goal:
+  priority: normal  # urgent | high | normal | low
+  expected_domain: ""
+  expected_skill: ""
+  use_for_public_product: false
+  notes: ""
+
+processing:
+  status: received
+  reviewer: ""
+  source_version: "1.0"

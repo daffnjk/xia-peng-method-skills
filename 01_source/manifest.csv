@@ -1,0 +1,4 @@
+﻿source_id,title,series,session,recording_date,publish_date,speaker,source_type,raw_path,reviewed_path,has_timecodes,rights_status,status,source_version,added_at,notes
+XP-T-001,让智能体懂你,职场智能体三天课,第1天,,,夏鹏,transcript,01_source/raw/XP-T-001_raw.txt,,false,not_recorded,knowledge_extracted,1.0,2026-08-22,原稿存在少量待音频核验术语
+XP-T-002,场景型 Skill 与目标管理,职场智能体三天课,第2天,,,夏鹏,transcript,01_source/raw/XP-T-002_raw.txt,,false,not_recorded,knowledge_extracted,1.0,2026-08-22,四步/五步编号已在 contradictions 中工程化归一
+XP-T-003,多 Agent 工作流与变现系统,职场智能体三天课,第3天,,,夏鹏,transcript,01_source/raw/XP-T-003_raw.txt,,false,not_recorded,knowledge_extracted,1.0,2026-08-22,平台与收益类主张需继续审计

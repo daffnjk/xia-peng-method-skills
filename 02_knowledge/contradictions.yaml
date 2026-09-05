@@ -1,0 +1,67 @@
+- id: XP-X-001
+  topic: Skill 是四步还是五步
+  observations:
+  - 先称五步法
+  - 当思维模型足够时可跳过流程拆解，变成四步
+  resolution: 把它定义为“4+1 可选结构”：场景、模型、前后步骤、迭代；若模型不足，再增加显式流程拆解。
+  source_refs:
+  - XP-T-002#P007-P021
+- id: XP-X-002
+  topic: 步骤编号混乱
+  observations:
+  - 讲者跳过第三步后，把前后步骤称为第三步或第四步
+  resolution: 不沿用口述编号，按功能命名模块。
+  source_refs:
+  - XP-T-002#P042-P055
+- id: XP-X-003
+  topic: 自动记忆假设
+  observations:
+  - 多次称每次互动都会成为数据
+  - 又依赖特定平台的 memory/项目文件
+  resolution: 产品实现必须显式记录与检索，不能只依赖聊天历史。
+  source_refs:
+  - XP-T-001#P014-P024
+  - XP-T-001#P075-P081
+- id: XP-X-004
+  topic: 不需要技术 vs 需要 API/CLI
+  observations:
+  - 入门强调基本与技术无关
+  - 高阶又提出 API、CLI 和外部数据源
+  resolution: 区分 MVP 与生产化：首版可无代码，规模化集成仍需技术。
+  source_refs:
+  - XP-T-001#P008-P010
+  - XP-T-002#P059
+  - XP-T-003#P013
+- id: XP-X-005
+  topic: Human-over/on-the-loop 术语
+  observations:
+  - 原转写为“慢 over the loop”
+  - 定义是人监督、系统自主多轮运行
+  resolution: 工程上采用 Human-on-the-loop，并保留待音频核验标记。
+  source_refs:
+  - XP-T-003#P035-P039
+- id: XP-X-006
+  topic: 数据越多越好 vs 平台上下文限制
+  observations:
+  - 强调尽量多和大量输入
+  - 演示中平台最多上传十个文件
+  resolution: 先广泛收集，再分层摘要、检索与按需加载。
+  source_refs:
+  - XP-T-002#P029-P033
+  - XP-T-003#P076-P078
+- id: XP-X-007
+  topic: 单 Agent 与多 Agent
+  observations:
+  - 许多任务可由一个 Skill/Agent 完成
+  - 变现系统通常需要多 Agent 配合
+  resolution: 按任务耦合度和角色差异选择；先单 Agent MVP，复杂后再拆。
+  source_refs:
+  - XP-T-001#P081-P105
+  - XP-T-003#P003-P010
+- id: XP-X-008
+  topic: Gallup 价格
+  observations:
+  - 同段出现 455 元和 445 元
+  resolution: 不在知识卡中保存具体价格；需回听或查官方来源。
+  source_refs:
+  - XP-T-001#P033

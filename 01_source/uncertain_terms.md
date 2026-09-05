@@ -1,0 +1,19 @@
+# 待音频核验术语
+
+以下项目不能仅凭逐字稿确定，首版没有把它们当成事实写入核心方法：
+
+| 原转写 | 暂定写法 | 说明 |
+|---|---|---|
+| work body | WorkBuddy | 疑似智能体平台名 |
+| cloud | Claude | 疑似模型/产品名 |
+| open cloud / open call | OpenClaw | 疑似工具名 |
+| 力大七里 | 力大出奇迹 | 疑似固定表达 |
+| 慢 over the loop | Human-on-the-loop | 按其“人监督、循环自行运行”的定义推定 |
+| 慢 in the loop | Human-in-the-loop | 按其“人做关键判断后再启动”的定义推定 |
+| GRAI / GRY / grime | GRAI 复盘模型 | 原文存在多种识别结果 |
+| CCOI | 未归一 | 可能是 CLI 或其他缩写 |
+| lead session | 未归一 | 需要回听音频 |
+| killer something | 未归一 | 需要回听音频 |
+| 五步法来自哈佛商学院 | 来源自述 | 现有材料不能独立验证该归属 |
+
+处理原则：低置信度词不进入关键判断；需要引用时标注“待核”。

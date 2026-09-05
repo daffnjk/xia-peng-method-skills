@@ -1,0 +1,99 @@
+- model_id: XP-M-001
+  name: 教练技术（十个模型）
+  source_definition: 未提供具体模型名称和定义
+  status: missing_source
+  source_refs:
+  - XP-T-002#P012-P016
+- model_id: XP-M-002
+  name: 四大原则
+  source_definition: 仅被提及，内容未提供
+  status: missing_source
+  source_refs:
+  - XP-T-002#P016
+- model_id: XP-M-003
+  name: SMART
+  source_definition: 仅作为目标管理模型被提及
+  status: external_definition_required
+  source_refs:
+  - XP-T-002#P044-P045
+  - XP-T-002#P069-P071
+- model_id: XP-M-004
+  name: OKR
+  source_definition: 仅作为目标拆解模型被提及
+  status: external_definition_required
+  source_refs:
+  - XP-T-002#P044-P045
+  - XP-T-002#P072
+- model_id: XP-M-005
+  name: KPI
+  source_definition: 仅作为目标分解模型被提及
+  status: external_definition_required
+  source_refs:
+  - XP-T-002#P044-P045
+- model_id: XP-M-006
+  name: 平衡计分卡
+  source_definition: 仅被提及并用于财务、客户、流程、学习等维度
+  status: partially_observed
+  source_refs:
+  - XP-T-002#P044-P045
+  - XP-T-002#P073-P074
+- model_id: XP-M-007
+  name: Sprint 工作法
+  source_definition: 用于优先级、时间节奏与短周期推进
+  status: partially_observed
+  source_refs:
+  - XP-T-002#P044-P045
+  - XP-T-002#P074-P075
+- model_id: XP-M-008
+  name: ART 汇报原则
+  source_definition: A=目标，R=资源，T=时间；三者存在权衡
+  status: source_defined
+  source_refs:
+  - XP-T-002#P044-P045
+- model_id: XP-M-009
+  name: PDCA
+  source_definition: 用于循环与复盘，详细定义未提供
+  status: external_definition_required
+  source_refs:
+  - XP-T-002#P044-P045
+  - XP-T-002#P076
+- model_id: XP-M-010
+  name: GRAI 复盘模型
+  source_definition: 名称存在转写歧义，定义未提供
+  status: uncertain_name_and_missing_definition
+  source_refs:
+  - XP-T-002#P044-P045
+- model_id: XP-M-011
+  name: 商业画布
+  source_definition: 用于商业计划书与副业架构，定义未提供
+  status: external_definition_required
+  source_refs:
+  - XP-T-003#P045-P058
+- model_id: XP-M-012
+  name: MVP
+  source_definition: 用于快速验证和四周推进，定义未提供
+  status: external_definition_required
+  source_refs:
+  - XP-T-003#P045-P058
+  - XP-T-003#P091-P093
+- model_id: XP-M-013
+  name: 单位经济模型
+  source_definition: 用于投入、产出、成本测算，公式未提供
+  status: external_definition_required
+  source_refs:
+  - XP-T-003#P015-P016
+  - XP-T-003#P055-P058
+- model_id: XP-M-014
+  name: VOC
+  source_definition: 被解释为用户调研/用户声音飞轮，详细流程未提供
+  status: partially_observed
+  source_refs:
+  - XP-T-003#P091-P093
+  - XP-T-003#P122-P123
+- model_id: XP-M-015
+  name: 颠覆式创新
+  source_definition: 作为外部案例框架被调用，定义未提供
+  status: external_definition_required
+  source_refs:
+  - XP-T-003#P077-P078
+  - XP-T-003#P091-P093

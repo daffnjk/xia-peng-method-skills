@@ -1,0 +1,8 @@
+# Private user context - keep local unless intentionally changed
+05_user_private/*
+!05_user_private/README.md
+
+# Local OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp

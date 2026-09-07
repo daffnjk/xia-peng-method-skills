@@ -1,8 +1,10 @@
 ---
 name: goal-management
 description: 在领导布置任务、会议后对齐、周月复盘等场景中，澄清目标口径、拆路径、配资源、排节奏、汇报并沉淀。
-version: 0.1.0
+version: 0.3.0
 ---
+
+先读取并遵守 `03_agent/METHOD_POLICY.md`，包括直接显式调用本 Skill 的情况。依赖与可选辅助能力见 `03_agent/skill_registry.json`。这是方法流程，不代表已执行任何工具动作。
 
 # 触发场景
 
@@ -48,4 +50,4 @@ version: 0.1.0
 
 # 来源
 
-[XP-T-002#P024-P026] [XP-T-002#P038-P057] [XP-T-002#P061-P079]
+[XP-T-002（01_source/raw/XP-T-002_raw.txt；仅文件级定位）] [XP-T-002（01_source/raw/XP-T-002_raw.txt；仅文件级定位）] [XP-T-002（01_source/raw/XP-T-002_raw.txt；仅文件级定位）]

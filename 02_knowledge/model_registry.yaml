@@ -3,27 +3,35 @@
   source_definition: 未提供具体模型名称和定义
   status: missing_source
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P012-P016
 - model_id: XP-M-002
   name: 四大原则
   source_definition: 仅被提及，内容未提供
   status: missing_source
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P016
 - model_id: XP-M-003
   name: SMART
   source_definition: 仅作为目标管理模型被提及
   status: external_definition_required
   source_refs:
-  - XP-T-002#P044-P045
-  - XP-T-002#P069-P071
+  - XP-T-002
   - XP-T-004#P246-P247
   - XP-T-004#P565-P566
+  legacy_source_refs:
+  - XP-T-002#P044-P045
+  - XP-T-002#P069-P071
 - model_id: XP-M-004
   name: OKR
   source_definition: 仅作为目标拆解模型被提及
   status: external_definition_required
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P044-P045
   - XP-T-002#P072
 - model_id: XP-M-005
@@ -31,12 +39,16 @@
   source_definition: 仅作为目标分解模型被提及
   status: external_definition_required
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P044-P045
 - model_id: XP-M-006
   name: 平衡计分卡
   source_definition: 仅被提及并用于财务、客户、流程、学习等维度
   status: partially_observed
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P044-P045
   - XP-T-002#P073-P074
 - model_id: XP-M-007
@@ -44,6 +56,8 @@
   source_definition: 用于优先级、时间节奏与短周期推进
   status: partially_observed
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P044-P045
   - XP-T-002#P074-P075
 - model_id: XP-M-008
@@ -51,12 +65,16 @@
   source_definition: A=目标，R=资源，T=时间；三者存在权衡
   status: source_defined
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P044-P045
 - model_id: XP-M-009
   name: PDCA
   source_definition: 用于循环与复盘，详细定义未提供
   status: external_definition_required
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P044-P045
   - XP-T-002#P076
 - model_id: XP-M-010
@@ -64,26 +82,34 @@
   source_definition: 名称存在转写歧义，定义未提供
   status: uncertain_name_and_missing_definition
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P044-P045
 - model_id: XP-M-011
   name: 商业画布
   source_definition: 用于商业计划书与副业架构，定义未提供
   status: external_definition_required
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P045-P058
 - model_id: XP-M-012
   name: MVP
   source_definition: 用于快速验证；XP-T-004 将其用于优势试炼，要求先做、测量、学习改进并循环。
   status: partially_source_defined
   source_refs:
+  - XP-T-003
+  - XP-T-004#P075-P105
+  legacy_source_refs:
   - XP-T-003#P045-P058
   - XP-T-003#P091-P093
-  - XP-T-004#P075-P105
 - model_id: XP-M-013
   name: 单位经济模型
   source_definition: 用于投入、产出、成本测算，公式未提供
   status: external_definition_required
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P015-P016
   - XP-T-003#P055-P058
 - model_id: XP-M-014
@@ -91,6 +117,8 @@
   source_definition: 被解释为用户调研/用户声音飞轮，详细流程未提供
   status: partially_observed
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P091-P093
   - XP-T-003#P122-P123
 - model_id: XP-M-015
@@ -98,6 +126,8 @@
   source_definition: 作为外部案例框架被调用，定义未提供
   status: external_definition_required
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P077-P078
   - XP-T-003#P091-P093
 - model_id: XP-M-016
@@ -137,7 +167,8 @@
   source_definition: 优势叠加、输出倒逼输入、分享赋能人脉、形成身份标签，并再反过来强化优势。
   status: source_defined
   source_refs:
-  - XP-T-004#P218-P296
+  - XP-T-004#P218-P282
+  - XP-T-004#P284-P296
 - model_id: XP-M-022
   name: 费曼学习法（课程版）
   source_definition: 先定义学习目标，带问题搜索并分类以理解，通过教别人输出，回顾表达，最后简化和压缩知识。

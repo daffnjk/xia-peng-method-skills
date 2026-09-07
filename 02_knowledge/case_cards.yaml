@@ -25,6 +25,8 @@
   - 示例输出原文未提供
   - 平台性能比较没有独立证据
   source_refs:
+  - XP-T-001
+  legacy_source_refs:
   - XP-T-001#P037-P057
 - id: XP-C-002
   title: 跨文本生成客户方案
@@ -46,6 +48,8 @@
   limitations:
   - 没有给出具体成品与效果数据
   source_refs:
+  - XP-T-001
+  legacy_source_refs:
   - XP-T-001#P052-P055
 - id: XP-C-003
   title: 基于全部资料重写简历
@@ -68,6 +72,8 @@
   - STAR 定义未在材料展开
   - 示例成品未提供
   source_refs:
+  - XP-T-001
+  legacy_source_refs:
   - XP-T-001#P067-P074
 - id: XP-C-004
   title: 每周画像与季度简历更新
@@ -91,6 +97,8 @@
   limitations:
   - 来源默认平台会保存全量对话，实际需验证
   source_refs:
+  - XP-T-001
+  legacy_source_refs:
   - XP-T-001#P075-P081
 - id: XP-C-005
   title: 职场教练：逐问深化再给行动
@@ -114,6 +122,8 @@
   limitations:
   - 完整 Skill 文档未包含在逐字稿中，不能复原其十个教练模型
   source_refs:
+  - XP-T-001
+  legacy_source_refs:
   - XP-T-001#P082-P101
 - id: XP-C-006
   title: 目标管理 Skill 的口述构建
@@ -137,6 +147,8 @@
   limitations:
   - 部分模型名称识别有误，定义不完整
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P034-P062
 - id: XP-C-007
   title: 下周 50 万营收目标拆解
@@ -163,6 +175,8 @@
   limitations:
   - 示例中的公司数据未提供，不能复现数值正确性
   source_refs:
+  - XP-T-002
+  legacy_source_refs:
   - XP-T-002#P061-P079
 - id: XP-C-008
   title: 副业陪跑 Doer
@@ -187,6 +201,8 @@
   limitations:
   - 来源没有提供标准化财务模型
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P013-P020
 - id: XP-C-009
   title: 副业情报 Collector
@@ -210,6 +226,8 @@
   limitations:
   - 来源中的“全网”能力取决于平台工具与权限
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P021-P023
   - XP-T-003#P040-P043
 - id: XP-C-010
@@ -235,6 +253,8 @@
   limitations:
   - 平台特定的 @ 机制不一定适用于其他系统
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P023-P031
   - XP-T-003#P042-P053
 - id: XP-C-011
@@ -259,6 +279,8 @@
   limitations:
   - 原转写术语有误，工程上暂映射为 Human-in/on-the-loop
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P031-P039
 - id: XP-C-012
   title: 用案例增强商业计划书
@@ -280,6 +302,8 @@
   limitations:
   - 案例正文不在附件中，无法验证 AI 的具体提炼是否忠实
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P075-P093
   - XP-T-003#P110-P118
 - id: XP-C-013
@@ -303,6 +327,8 @@
   limitations:
   - 个人财务和职业情况差异很大
   source_refs:
+  - XP-T-003
+  legacy_source_refs:
   - XP-T-003#P118-P121
 - id: XP-C-014
   title: 在现岗中试炼优势假设

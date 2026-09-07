@@ -1,8 +1,10 @@
 ---
 name: side-business-system
 description: 用 Collector/Planner/Doer 结构筛选、评估和小规模验证副业项目；本 Skill 含明确的工程化外推，不代表完整夏鹏商业方法论。
-version: 0.1.0
+version: 0.3.0
 ---
+
+先读取并遵守 `03_agent/METHOD_POLICY.md`，包括直接显式调用本 Skill 的情况。依赖与可选辅助能力见 `03_agent/skill_registry.json`。这是方法流程，不代表已执行任何工具动作。
 
 # 证据说明
 
@@ -54,4 +56,4 @@ version: 0.1.0
 
 # 来源
 
-[XP-T-003#P008-P023] [XP-T-003#P045-P059] [XP-T-003#P118-P121]
+[XP-T-003（01_source/raw/XP-T-003_raw.txt；仅文件级定位）] [XP-T-003（01_source/raw/XP-T-003_raw.txt；仅文件级定位）] [XP-T-003（01_source/raw/XP-T-003_raw.txt；仅文件级定位）]

@@ -1,8 +1,10 @@
 ---
 name: agent-team-workflow
 description: 把复杂任务拆为 Collector、Planner、Doer，并设计信息到结果的闭环、验收和人工监督。
-version: 0.1.0
+version: 0.3.0
 ---
+
+先读取并遵守 `03_agent/METHOD_POLICY.md`，包括直接显式调用本 Skill 的情况。依赖与可选辅助能力见 `03_agent/skill_registry.json`。这是方法流程，不代表已执行任何工具动作。
 
 # 角色
 
@@ -43,4 +45,4 @@ version: 0.1.0
 
 # 来源
 
-[XP-T-003#P003-P010] [XP-T-003#P023-P039] [XP-T-003#P075-P085]
+[XP-T-003（01_source/raw/XP-T-003_raw.txt；仅文件级定位）] [XP-T-003（01_source/raw/XP-T-003_raw.txt；仅文件级定位）] [XP-T-003（01_source/raw/XP-T-003_raw.txt；仅文件级定位）]

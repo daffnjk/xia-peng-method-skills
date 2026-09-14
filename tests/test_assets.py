@@ -6,8 +6,6 @@ import csv
 import io
 import json
 from pathlib import Path
-import shutil
-import subprocess
 import sys
 import tempfile
 import unittest
@@ -18,7 +16,6 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 import assetlib
 import assets
-import migrate_architecture as migration
 import scaffold_new_course as intake
 from assetlib import AssetError, Catalog, canonical, digest, yaml_load
 import yaml
@@ -74,7 +71,9 @@ def fixture(root: Path) -> None:
     registry=json.loads((root/'03_agent/skill_registry.json').read_text())
     for skill in registry['skills']:
         put(root,f'.agents/skills/{skill["name"]}/SKILL.md',
-            f'---\nname: {skill["name"]}\ndescription: 测试任务\nversion: 0.3.0\n---\n\n遵守 03_agent/METHOD_POLICY.md\n')
+            f'---\nname: {skill["name"]}\ndescription: 测试任务\nversion: {skill["version"]}\n---\n\n遵守 03_agent/METHOD_POLICY.md\n')
+        for resource in skill.get("resources", []):
+            put(root, f'.agents/skills/{skill["name"]}/{resource}', "SYNTHETIC_REFERENCE_RESOURCE\n")
     evals=[dict(id=f'XP-E-{n:03}',category='source_recall',prompt=f'问题{n}',
                 expected_behavior='PRIVATE_EXPECTED_SENTINEL',forbidden_behavior='禁止编造',
                 score_dimensions=list(assetlib.DIMENSIONS),source_refs=['XP-T-001']) for n in (1,2)]
@@ -185,11 +184,6 @@ class ValidationTests(Base):
         put(self.root,'.agents/skills/create-readme/SKILL.md','development only')
         c=self.catalog(); assets.build(c)
         self.assertFalse((self.root/'dist/runtime/.agents/skills/create-readme').exists())
-    def test_context_has_governance(self):
-        c=self.catalog().context('career-planning');self.assertTrue(c['governance'])
-        self.assertIn('not a semantic',c['link_basis']);self.assertNotIn('expected_behavior',json.dumps(c))
-
-
 class BuildTests(Base):
     def test_deterministic_build(self):
         c=self.catalog();assets.build(c);first=(self.root/'dist/runtime.zip').read_bytes()
@@ -267,19 +261,6 @@ class EvaluationTests(Base):
     def test_nonexistent_citation_fails(self):
         report=self.valid_report();report['results'][0]['retrieved_refs']=['XP-T-999']
         with self.assertRaises(AssetError): assets.grade(self.catalog(),dump(self.root,'r.json',report))
-    def test_fake_adapter_receives_only_prompt_inputs(self):
-        code=('import sys,json; p=json.load(sys.stdin); '
-              'assert set(p)=={"id","prompt","asset_digest"}; '
-              'print(json.dumps({"answer":"fixture only","retrieved_refs":[]}))')
-        result=assets.run_adapter(self.catalog(),[sys.executable,'-c',code],5)
-        self.assertEqual(result['answered'],2);self.assertFalse(result['graded'])
-    def test_adapter_failure_stops(self):
-        with self.assertRaises(AssetError):assets.run_adapter(self.catalog(),[sys.executable,'-c','raise SystemExit(3)'],5)
-    def test_adapter_timeout_stops(self):
-        with patch('assets.subprocess.run',side_effect=subprocess.TimeoutExpired('test',1)):
-            with self.assertRaises(AssetError):assets.run_adapter(self.catalog(),['test'],1)
-
-
 class IntakeTests(Base):
     def test_missing_transcript_has_no_intake(self):
         with self.assertRaises(AssetError):intake.stage(self.root,title='课',transcript=self.root/'missing.txt')
@@ -334,29 +315,5 @@ class IntakeTests(Base):
         intake.stage(self.root,title='STAGED_SECRET_TITLE')
         assets.build(self.catalog())
         self.assertNotIn('STAGED_SECRET_TITLE',(self.root/'dist/runtime/01_source/manifest.csv').read_text())
-
-
-class MigrationTests(Base):
-    def test_reference_types_and_legacy_archive(self):
-        r=migration.normalize({'source_refs':['XP-T-001#P001-P003','XP-T-001#P004','XP-T-004#P001','XP-P-001','XP-CL-001','career-planning']})
-        self.assertEqual(r['source_refs'],['XP-T-001','XP-T-004#P001'])
-        self.assertEqual(len(r['legacy_source_refs']),2);self.assertEqual(r['claim_refs'],['XP-CL-001'])
-        self.assertEqual(r['skill_refs'],['career-planning'])
-    def test_normalize_idempotent(self):
-        r=migration.normalize({'source_refs':['XP-T-001#P001']});old=copy.deepcopy(r)
-        self.assertEqual(migration.normalize(r),old)
-    def test_migration_preserves_sources_and_statements(self):
-        shutil.copytree(self.root/'.agents/skills',self.root/'04_skills')
-        before_raw={str(p):p.read_bytes() for p in (self.root/'01_source').rglob('*.txt')}
-        before_statement=yaml_load((self.root/assetlib.KINDS['principle']).read_text())[0]['statement']
-        expected={rel:assetlib.blob_sha((self.root/rel).read_bytes()) for rel in migration.EXPECTED}
-        with patch.object(migration,'EXPECTED',expected):migration.migrate(self.root)
-        for p,b in before_raw.items():self.assertEqual(Path(p).read_bytes(),b)
-        self.assertEqual(yaml_load((self.root/assetlib.KINDS['principle']).read_text())[0]['statement'],before_statement)
-        self.catalog();self.assertEqual(migration.migrate(self.root)['status'],'already_migrated')
-    def test_unexpected_baseline_rejected(self):
-        with self.assertRaises(AssetError):migration.migrate(self.root)
-        self.assertFalse((self.root/'08_ops/migrations').exists())
-
 
 if __name__=='__main__':unittest.main()

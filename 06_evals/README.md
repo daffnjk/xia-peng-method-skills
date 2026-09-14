@@ -14,15 +14,9 @@ python scripts/assets.py prepare-eval
 
 `dist/runtime/` 只含运行资产，没有评测预期或私人目录。`dist/eval-prompts.jsonl` 只含 ID 和问题；`dist/golden_questions.md`、原题库和评分规则供评测人员使用，不能挂载到被测实例。
 
-## 适配器协议
+## 宿主执行协议
 
-```bash
-python scripts/assets.py run-evals --timeout 120 -- /absolute/path/to/adapter
-```
-
-每道题启动一次适配器，通过标准输入提供 JSON：`id`、`prompt`、`asset_digest`。适配器在 `dist/runtime/` 下工作，标准输出只能返回 JSON，含非空 `answer` 和 `retrieved_refs`。进程返回非零、无效输出或超时即停止；已完成回答保留在 `dist/adapter-answers.jsonl`。
-
-适配器由维护者实现，负责调用实际 Codex/模型、使用已授权的工具并记录实际检索证据。命令工作目录不是 OS 沙箱：真实评测需要额外配置宿主文件访问和工具权限。不要让被测模型访问开发仓库、题目预期或审阅人员的评分文件。没有提供适配器和宿主就没有执行真实模型回归。
+运行 `python scripts/assets.py prepare-eval` 后，外部宿主逐题读取 `dist/eval-prompts.jsonl`，在只挂载 `dist/runtime/` 的实例中调用实际 Codex/模型，并记录完整回答和 `retrieved_refs`。宿主负责权限隔离、超时和工具审批；没有提供宿主和执行记录，就没有完成真实模型回归。
 
 ## 评分记录
 

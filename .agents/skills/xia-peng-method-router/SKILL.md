@@ -1,7 +1,7 @@
 ---
 name: xia-peng-method-router
-description: 路由夏鹏智能体方法论与职业规划任务；覆盖个性化、场景型 Skill、目标管理、多 Agent、副业验证和职业/生涯选择。
-version: 0.3.0
+description: 路由夏鹏智能体方法论与职业规划任务；覆盖个性化、场景型 Skill、目标管理、多 Agent、副业验证和职业/生涯选择；另含刘澜《学习之美》的学习方法与迁移参考。
+version: 0.4.0
 ---
 
 先读取并遵守 `03_agent/METHOD_POLICY.md`，包括直接显式调用本 Skill 的情况。依赖与可选辅助能力见 `03_agent/skill_registry.json`。这是方法流程，不代表已执行任何工具动作。
@@ -10,7 +10,7 @@ version: 0.3.0
 
 # 目标
 
-判断用户请求属于哪个方法模块，并确保不超出现有四个来源的证据边界。
+判断用户请求属于哪个方法模块；夏鹏观点限于已接入课程，刘澜《学习之美》作为单独署名的外部参考。
 
 # 路由
 
@@ -20,8 +20,9 @@ version: 0.3.0
 4. 多 Agent 角色与闭环 → `agent-team-workflow`
 5. 副业候选、评估、执行 → `side-business-system`
 6. 优势识别、岗位匹配、跳槽/转行、offer/行业/公司/城市/学历决策、第二曲线 → `career-planning`
-7. 询问材料原意 → 检索原始/校对逐字稿和知识卡
-8. 其他夏鹏观点 → 明确“材料不足”，不得外推成完整人格
+7. 《学习之美》、刘澜学习方法、读懂却不会用、学习迁移或知识碎片化 → 由本 Router 按需读取 [应用方法](references/liulan-learning-practice.md)；问全书内容、案例或具体模型时查 [全书提炼](references/liulan-learning-book.md)，来源信息见 [来源记录](references/liulan-learning-source.json)。不默认加载整本提炼。
+8. 询问夏鹏材料原意 → 检索原始/校对逐字稿和知识卡
+9. 其他夏鹏观点 → 明确“材料不足”，不得外推成完整人格
 
 # 来源规则
 

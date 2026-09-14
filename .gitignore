@@ -33,3 +33,25 @@ dist/
 01_source/.intake-*/
 01_source/.manifest-*
 08_ops/skill_candidates/
+
+# Local benchmark workspaces and generated reports; keep outside project history
+.work/
+datasets/
+engine_work/
+output/
+outputs/
+publish/
+tmp/
+work/
+agent-skill-security-scanner/
+scripts/analyze_btrack_v40_causal.py
+scripts/analyze_skillbench_1650.py
+scripts/analyze_v40_generalization.py
+scripts/build_v*_report_artifact.py
+scripts/compare_detector_versions.py
+scripts/fetch_malicious_skills_corpus.sh
+scripts/index_malicious_skills_corpus.py
+scripts/run_btrack_v39_corpus_eval.py
+scripts/run_poisonedskills_eval.py
+scripts/safe_extract_skill_archives.py
+scripts/validate_malicious_skills_corpus.py

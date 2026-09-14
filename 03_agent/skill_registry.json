@@ -3,9 +3,9 @@
   "skills": [
     {
       "name": "xia-peng-method-router",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "kind": "router",
-      "description": "一个主流程加按需辅助能力；先检查证据和授权。",
+      "description": "一个主流程加按需辅助能力；含独立署名的刘澜《学习之美》外部参考。",
       "source_refs": [
         "XP-T-001",
         "XP-T-002",
@@ -13,7 +13,11 @@
         "XP-T-004"
       ],
       "skill_refs": [],
-      "resources": []
+      "resources": [
+        "references/liulan-learning-book.md",
+        "references/liulan-learning-practice.md",
+        "references/liulan-learning-source.json"
+      ]
     },
     {
       "name": "understand-me",

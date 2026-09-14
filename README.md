@@ -61,15 +61,14 @@ dist/             自动生成，不编辑、不提交
 
 `04_skills/` 已退出编辑流程，不再反向同步。原则 JSONL、黄金题展示、审阅页面由源资产生成，不保留第二个独立编辑源。公共方法规则只有 [METHOD_POLICY.md](03_agent/METHOD_POLICY.md) 一份；平台系统提示词由构建复制，工程维护规则留在 [AGENTS.md](AGENTS.md)。
 
-## 证据与上下文命令
+## 证据与引用命令
 
 ```bash
 python scripts/assets.py resolve XP-T-004#P012-P020
 python scripts/assets.py resolve XP-T-001
-python scripts/assets.py context --skill career-planning --query "优势 试炼"
 ```
 
-`resolve` 验证文件和锚点，不验证语义支持。前三个来源的旧 `#Pxxx` 已归档到 `legacy_source_refs`，不能继续作为有效引用。`context` 返回知识和同来源治理记录，不读取个人资料、不执行工具，也不是语义向量检索。
+`resolve` 只验证文件和锚点，不验证语义支持。前三个来源的旧 `#Pxxx` 已归档到 `legacy_source_refs`，不能继续作为有效引用。知识关联由宿主按注册表和来源字段完成，本仓库不提供语义检索器。
 
 ## 维护与评测
 
@@ -81,11 +80,10 @@ python scripts/scaffold_new_course.py --title "新课程" --transcript /path/to/
 
 脚本只登记，不自动校对、提取、授权或发布。已登记 ID 或相同稿件拒绝重复创建；失败后按提示处理，不删除仍可能被使用的锁。见 [接入 SOP](08_ops/INCREMENTAL_INGESTION_SOP.md)。
 
-真实行为评测需要选定宿主和模型。可先生成隔离输入，再使用宿主适配命令；评分记录绑定资产和题库摘要，缺题、低分、失效引用或严重越界均不通过。见 [评测说明](06_evals/README.md)。
+真实行为评测需要选定宿主和模型。可先生成隔离输入，再由外部宿主逐题执行；评分记录绑定资产和题库摘要，缺题、低分、失效引用或严重越界均不通过。见 [评测说明](06_evals/README.md)。
 
 ```bash
 python scripts/assets.py prepare-eval
-python scripts/assets.py run-evals --timeout 120 -- /absolute/path/to/host-adapter
 python scripts/assets.py grade-eval /path/to/scored-report.json
 ```
 

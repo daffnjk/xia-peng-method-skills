@@ -34,6 +34,17 @@ def dump(root: Path, rel: str, value) -> Path:
     return put(root, rel, canonical(value))
 
 
+def _can_symlink() -> bool:
+    with tempfile.TemporaryDirectory() as td:
+        target = Path(td) / 't'; target.touch()
+        try: (Path(td) / 'l').symlink_to(target)
+        except (OSError, NotImplementedError): return False
+        return True
+
+
+SYMLINKS_AVAILABLE = _can_symlink()
+
+
 def fixture(root: Path) -> None:
     for rel in ('schemas/assets.schema.json',
                 'requirements-dev.txt', 'scripts/assetlib.py', 'scripts/assets.py'):
@@ -161,6 +172,7 @@ class ValidationTests(Base):
     def test_path_traversal(self):
         for p in ('../x','/tmp/x','a/../../x','.git/config','a\\b'):
             with self.subTest(path=p),self.assertRaises(AssetError): assetlib.safe_path(self.root,p)
+    @unittest.skipUnless(SYMLINKS_AVAILABLE, 'symlink creation unavailable on this platform')
     def test_symlink_rejected(self):
         path=self.root/'02_knowledge/case_cards.yaml';path.unlink();path.symlink_to(self.root/'02_knowledge/principle_cards.yaml')
         with self.assertRaises(AssetError): self.catalog()
@@ -228,6 +240,7 @@ class BuildTests(Base):
     def test_stale_build_detected(self):
         assets.build(self.catalog());put(self.root,'03_agent/METHOD_POLICY.md','new policy')
         with self.assertRaises(AssetError): assets.check_build(self.catalog())
+    @unittest.skipUnless(SYMLINKS_AVAILABLE, 'symlink creation unavailable on this platform')
     def test_symlink_dist_rejected(self):
         (self.root/'dist').symlink_to(self.root/'03_agent',target_is_directory=True)
         with self.assertRaises(AssetError): assets.build(self.catalog())

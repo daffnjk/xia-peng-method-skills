@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased — 工程卫生与版本控制（2026-09-15）
+
+- 符号链接安全用例在无符号链接权限的 Windows 上改为跳过（探测可用性后 skipUnless）；本机测试套件恢复全绿，Linux CI 行为不变。
+- 仓库纳入本地 Git 管理：基线提交并打 tag `v0.3.1-baseline`；设置 `core.autocrlf=false` 保护来源哈希锁的字节一致性。未配置远端。
+- `OVERNIGHT_PLAN_2026-09-15.md` 顶部标记已执行完毕，防止后续会话按断点续跑指令重做。
+
 ## Unreleased — Skill 来源脚注治理（2026-09-15）
 
 - 修复迁移遗留的来源脚注重复：understand-me、goal-management、agent-team-workflow、scene-skill-builder、side-business-system 的重复引用去重。

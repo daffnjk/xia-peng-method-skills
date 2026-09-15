@@ -1,0 +1,74 @@
+﻿source_id,original,normalized,confidence,occurrences,note
+XP-T-001,AA 4,A4,high,1,纸张规格
+XP-T-001,ai,AI,high,1,缩写统一
+XP-T-001,cloud是吧,Claude〔待音频核验〕是吧,low,1,疑似模型名
+XP-T-001,emtp,ENTP,high,1,人格类型
+XP-T-001,enp这个entp,ENTP,high,1,人格类型
+XP-T-001,hdmi,HTML,high,1,输出格式语境
+XP-T-001,mbabti,MBTI,high,1,缩写
+XP-T-001,open cloud,OpenClaw〔待音频核验〕,low,1,疑似平台/工具名
+XP-T-001,scale,skill,high,1,全文语境
+XP-T-001,work body,WorkBuddy〔平台名待音频核验〕,low,1,疑似平台名
+XP-T-001,东式,格式,high,1,语境明确
+XP-T-001,公布唐娟,功不唐捐,high,1,成语
+XP-T-001,力大七里,力大出奇迹〔原转写“力大七里”，待音频核验〕,low,2,固定表达疑似
+XP-T-001,字模型,自模型,high,14,全篇定义为 skill/agent/workflow
+XP-T-001,巡博,辛博,high,1,人名上下文
+XP-T-001,心博,辛博,high,6,人名上下文
+XP-T-001,怎么大字模型和数学,怎么搭自模型和数据源,high,1,语境明确
+XP-T-001,新博,辛博,high,5,人名上下文
+XP-T-001,新法,心法,high,4,固定搭配
+XP-T-001,日拱一族,日拱一卒,high,2,成语
+XP-T-001,盖勒普,盖洛普,high,10,专有名词
+XP-T-001,蓝威认证,蓝V认证,high,1,平台认证语境
+XP-T-001,鑫博,辛博,high,2,人名上下文
+XP-T-002,ai,AI,high,2,缩写统一
+XP-T-002,art汇报原则,ART汇报原则,high,3,缩写
+XP-T-002,grime这个。复盘模型,GRAI复盘模型,medium,1,后文口述为 grai
+XP-T-002,gry是grai啊gry复盘模型,GRAI复盘模型,medium,1,原文自我纠正
+XP-T-002,hhtml,HTML,high,1,输出格式语境
+XP-T-002,mthtml,HTML,high,1,输出格式语境
+XP-T-002,pdca,PDCA,high,2,缩写
+XP-T-002,pdc的循环,PDCA循环,high,1,缩写与语境
+XP-T-002,scale,skill,high,1,全文语境
+XP-T-002,spring的工作法,Sprint工作法,high,1,上下文为目标管理
+XP-T-002,公不唐捐,功不唐捐,high,2,成语
+XP-T-002,力大七里,力大出奇迹〔原转写“力大七里”，待音频核验〕,low,1,固定表达疑似
+XP-T-002,字，模型,自模型,high,1,术语一致
+XP-T-002,平衡积分卡,平衡计分卡,high,3,管理模型名称
+XP-T-002,心博,辛博,high,1,人名上下文
+XP-T-002,日供一族,日拱一卒,high,1,成语
+XP-T-002,百问不如一列,百问不如一练〔原转写“列”，待音频核验〕,low,1,上下文疑似固定表达
+XP-T-002,盖勒普,盖洛普,high,1,专有名词
+XP-T-002,风俭由人,丰俭由人,high,2,成语
+XP-T-003,ai,AI,high,1,缩写统一
+XP-T-003,opc,OPC,high,4,缩写
+XP-T-003,open call,OpenClaw〔待音频核验〕,low,1,疑似平台/工具名
+XP-T-003,ovc呃呃voc,VOC,high,1,后文明确为 VOC
+XP-T-003,sa as,SaaS,high,1,缩写
+XP-T-003,scale,skill,high,3,全文语境
+XP-T-003,丘巴尼,Chobani,medium,1,案例名称
+XP-T-003,乔巴尼,Chobani,medium,1,案例名称
+XP-T-003,单经济模型,单位经济模型,high,1,商业模型名称
+XP-T-003,商业化不MVP,商业画布、MVP,high,1,上下文
+XP-T-003,心博,辛博,high,3,人名上下文
+XP-T-003,慢over the loop,Human-on-the-loop〔原转写疑似“human/man over the loop”，待核〕,low,1,定义更接近 human-on-the-loop
+XP-T-003,慢。in the loop,Human-in-the-loop〔待音频核验〕,low,1,常见术语
+XP-T-003,新博,辛博,high,1,人名上下文
+XP-T-003,股价已经搭建,骨架已经搭建,high,1,商业计划书语境
+XP-T-004,MPV,MVP,high,2,模型名与后文一致
+XP-T-004,试列,试炼,high,1,全课核心术语
+XP-T-004,霍乱德,霍兰德,high,1,人名与职业兴趣模型
+XP-T-004,盖乐普/盖勒普,盖洛普,high,4,专有名词统一
+XP-T-004,盖洛普优势识别20/识别720,盖洛普优势识别器 2.0,medium,2,书名疑似指 StrengthsFinder 2.0
+XP-T-004,manter/man ter/matter/慢ter,mentor,high,9,英文术语与上下文定义明确
+XP-T-004,非卖/菲曼,费曼,high,3,费曼学习法
+XP-T-004,沟通12家,沟通12讲,high,3,课程数量语境
+XP-T-004,男儿正确,难而正确,high,1,固定表达与上下文
+XP-T-004,一岗资源,异岗资源,high,4,跨职能同事语境
+XP-T-004,售狗/受购,瘦狗,high,5,波士顿矩阵类型
+XP-T-004,cash c/cash CA,cash cow,high,2,波士顿矩阵术语
+XP-T-004,调限制/条限制,条线制,high,5,组织结构语境
+XP-T-004,事业布置,事业部制,high,3,组织结构语境
+XP-T-004,中国第一线城市,中国低线城市,high,3,上下文为城市梯度与时间差
+XP-T-004,世界应用演讲比赛,世界英语演讲比赛,high,1,前文自述一致

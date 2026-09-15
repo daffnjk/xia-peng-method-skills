@@ -1,0 +1,134 @@
+- id: XP-X-001
+  topic: Skill 是四步还是五步
+  observations:
+  - 先称五步法
+  - 当思维模型足够时可跳过流程拆解，变成四步
+  resolution: 把它定义为“4+1 可选结构”：场景、模型、前后步骤、迭代；若模型不足，再增加显式流程拆解。
+  source_refs:
+  - XP-T-002
+  legacy_source_refs:
+  - XP-T-002#P007-P021
+- id: XP-X-002
+  topic: 步骤编号混乱
+  observations:
+  - 讲者跳过第三步后，把前后步骤称为第三步或第四步
+  resolution: 不沿用口述编号，按功能命名模块。
+  source_refs:
+  - XP-T-002
+  legacy_source_refs:
+  - XP-T-002#P042-P055
+- id: XP-X-003
+  topic: 自动记忆假设
+  observations:
+  - 多次称每次互动都会成为数据
+  - 又依赖特定平台的 memory/项目文件
+  resolution: 产品实现必须显式记录与检索，不能只依赖聊天历史。
+  source_refs:
+  - XP-T-001
+  legacy_source_refs:
+  - XP-T-001#P014-P024
+  - XP-T-001#P075-P081
+- id: XP-X-004
+  topic: 不需要技术 vs 需要 API/CLI
+  observations:
+  - 入门强调基本与技术无关
+  - 高阶又提出 API、CLI 和外部数据源
+  resolution: 区分 MVP 与生产化：首版可无代码，规模化集成仍需技术。
+  source_refs:
+  - XP-T-001
+  - XP-T-002
+  - XP-T-003
+  legacy_source_refs:
+  - XP-T-001#P008-P010
+  - XP-T-002#P059
+  - XP-T-003#P013
+- id: XP-X-005
+  topic: Human-over/on-the-loop 术语
+  observations:
+  - 原转写为“慢 over the loop”
+  - 定义是人监督、系统自主多轮运行
+  resolution: 工程上采用 Human-on-the-loop，并保留待音频核验标记。
+  source_refs:
+  - XP-T-003
+  legacy_source_refs:
+  - XP-T-003#P035-P039
+- id: XP-X-006
+  topic: 数据越多越好 vs 平台上下文限制
+  observations:
+  - 强调尽量多和大量输入
+  - 演示中平台最多上传十个文件
+  resolution: 先广泛收集，再分层摘要、检索与按需加载。
+  source_refs:
+  - XP-T-002
+  - XP-T-003
+  legacy_source_refs:
+  - XP-T-002#P029-P033
+  - XP-T-003#P076-P078
+- id: XP-X-007
+  topic: 单 Agent 与多 Agent
+  observations:
+  - 许多任务可由一个 Skill/Agent 完成
+  - 变现系统通常需要多 Agent 配合
+  resolution: 按任务耦合度和角色差异选择；先单 Agent MVP，复杂后再拆。
+  source_refs:
+  - XP-T-001
+  - XP-T-003
+  legacy_source_refs:
+  - XP-T-001#P081-P105
+  - XP-T-003#P003-P010
+- id: XP-X-008
+  topic: Gallup 价格
+  observations:
+  - 同段出现 455 元和 445 元
+  resolution: 不在知识卡中保存具体价格；需回听或查官方来源。
+  source_refs:
+  - XP-T-001
+  legacy_source_refs:
+  - XP-T-001#P033
+- id: XP-X-009
+  topic: 长板优先 vs 补齐短板
+  observations:
+  - XP-T-004 反对应试式平均用力，主张发挥长板
+  - 同时要求修补自我管理等限制性短板
+  resolution: 长板用于建立差异化；短板只在阻断当前阶段、安全、道德、资质或基本协作时补到可用，其余通过分工合作解决。
+  source_refs:
+  - XP-T-004#P118-P168
+- id: XP-X-010
+  topic: 先稳住主业 vs 副业作为试炼场
+  observations:
+  - XP-T-003 给出“先稳定工资、再验证副业”的谨慎顺序
+  - XP-T-004 鼓励在主业无法试验优势时建立“第二工作场景”
+  resolution: 将副业试炼限定为低风险、有预算、不破坏主业与劳动合同、有停止条件的小规模实验，不等于立即靠副业获利。
+  source_refs:
+  - XP-T-003
+  - XP-T-004#P106-P115
+  legacy_source_refs:
+  - XP-T-003#P118-P121
+- id: XP-X-011
+  topic: 提前就业有优势 vs 读书深造可加速迁移
+  observations:
+  - XP-T-004 称提前就业具有优势，强调学业的时间成本
+  - 同一材料又把在职研究生、全日制研究生和 MBA 作为转岗、换行业或换城市的桥梁
+  resolution: 不对“就业”或“读书”做普遍优劣判断；按当下问题、硬性资质、总成本、完成率、就业路径和退出选项比较。
+  source_refs:
+  - XP-T-004#P195-P207
+  - XP-T-004#P547-P567
+- id: XP-X-012
+  topic: 职业强调结果 vs 生涯可重视过程
+  observations:
+  - 课程前半部要求用工作结果证明擅长
+  - 生涯规划部分认为第二曲线可以因热爱和意义重视过程
+  resolution: 分层处理：对承担收入与职业责任的决策仍要求结果证据；对可逆、低风险的生涯探索可把意义感作为候选信号。
+  source_refs:
+  - XP-T-004#P149-P155
+  - XP-T-004#P569-P585
+- id: XP-X-013
+  topic: 试炼强调快速行动 vs 职业跃迁需谨慎规划
+  observations:
+  - XP-T-004 反复强调“想到就做”和海投找感觉
+  - 同时强调不要盲目跳槽、不要同时增加过多变量
+  resolution: “快”只用于低风险、可逆、可测量的小实验；辞职、降薪、跨城、负债读书等高成本动作需单独审批与回退路径。
+  source_refs:
+  - XP-T-004#P075-P105
+  - XP-T-004#P169-P170
+  - XP-T-004#P172-P216

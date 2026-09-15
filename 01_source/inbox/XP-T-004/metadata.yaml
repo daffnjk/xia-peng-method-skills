@@ -1,0 +1,37 @@
+course:
+  source_id: "XP-T-004"
+  title: "职业规划"
+  series: "待确认"
+  session: "待确认"
+  recording_date: null
+  publish_date: null
+  speaker: "夏鹏"
+  source_type: transcript
+  original_filename: "pasted-text.txt"
+  language: zh-CN
+
+source_quality:
+  has_audio_or_video: false
+  has_timecodes: false
+  has_speaker_labels: false
+  has_slides_or_handout: false
+  transcription_method: unknown
+  known_typos_or_terms:
+    - "有邻优客 / 有林游客 / 有利优客：疑似同一品牌名，待音视频核验"
+    - "参培率 30% 拐点：来源内主张，需外部核验"
+
+rights:
+  status: "internal_only_pending_confirmation"
+  notes: "用户要求加入当前智能体；未明确允许用于对外产品。"
+
+integration_goal:
+  priority: high
+  expected_domain: "职业规划与生涯规划"
+  expected_skill: "career-planning"
+  use_for_public_product: false
+  notes: "新增完整12讲领域；更新知识卡、Router、System Prompt、Skill与评测。"
+
+processing:
+  status: knowledge_extracted
+  reviewer: "Codex"
+  source_version: "1.0"

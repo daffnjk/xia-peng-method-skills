@@ -1,0 +1,6 @@
+﻿source_id,title,series,session,recording_date,publish_date,speaker,source_type,raw_path,reviewed_path,has_timecodes,rights_status,status,source_version,added_at,notes
+XP-T-001,让智能体懂你,职场智能体三天课,第1天,,,夏鹏,transcript,01_source/raw/XP-T-001_raw.txt,,false,not_recorded,knowledge_extracted,1.0,2026-08-22,原稿存在少量待音频核验术语
+XP-T-002,场景型 Skill 与目标管理,职场智能体三天课,第2天,,,夏鹏,transcript,01_source/raw/XP-T-002_raw.txt,,false,not_recorded,knowledge_extracted,1.0,2026-08-22,四步/五步编号已在 contradictions 中工程化归一
+XP-T-003,多 Agent 工作流与变现系统,职场智能体三天课,第3天,,,夏鹏,transcript,01_source/raw/XP-T-003_raw.txt,,false,not_recorded,knowledge_extracted,1.0,2026-08-22,平台与收益类主张需继续审计
+XP-T-004,职业规划,待确认,待确认,,,夏鹏,transcript,01_source/raw/XP-T-004_raw.txt,01_source/reviewed/XP-T-004_reviewed.txt,false,internal_only_pending_confirmation,knowledge_extracted,1.0,2026-09-02,共12讲；系列、日期与对外授权待确认
+XP-T-005,学习之美：刘澜的私房学习书,外部书籍,24组选段,,,刘澜,book_visual_notes,01_source/raw/XP-T-005_selected_excerpts.txt,01_source/reviewed/XP-T-005_reviewed.txt,false,internal_only_pending_confirmation,knowledge_extracted,1.0,2026-09-10,202跨页扫描件；24组视觉阅读记录非全文转录；独立人工复核和对外授权待确认

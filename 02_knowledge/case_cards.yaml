@@ -1,0 +1,462 @@
+- id: XP-C-001
+  title: “关于我”初始化与职业规划
+  case_type: demonstration
+  summary: 上传简历、自我介绍、MBTI、盖洛普和周报，建立“关于我”项目，并要求总结优势及 1—3 年职业规划。
+  inputs:
+  - 个人简历
+  - 约 3000 字自我介绍
+  - MBTI
+  - 盖洛普报告
+  - 3—5 份周报/工作总结
+  process:
+  - 建立独立项目/文件夹
+  - 上传资料
+  - 要求跨材料总结优势
+  - 生成阶段规划和里程碑
+  outputs:
+  - 优势组合
+  - 短板提示
+  - 1—3 年规划
+  - 关键策略与里程碑
+  lessons:
+  - 资料组合比单一测评更有信息量
+  - 输出质量依赖资料解析和事实完整性
+  limitations:
+  - 示例输出原文未提供
+  - 平台性能比较没有独立证据
+  source_refs:
+  - XP-T-001
+  legacy_source_refs:
+  - XP-T-001#P037-P057
+- id: XP-C-002
+  title: 跨文本生成客户方案
+  case_type: example
+  summary: 把新客户访谈与历史案例/营销方案共同输入，要求基于参考案例生成定制方案。
+  inputs:
+  - 新客户需求访谈
+  - 历史客户案例
+  - 营销方案
+  process:
+  - 区分当前事实与参考材料
+  - 寻找相似模式
+  - 生成针对当前客户的方案
+  outputs:
+  - 客户方案草案
+  lessons:
+  - 跨文档关联是核心能力
+  - 参考案例需要说明适用性
+  limitations:
+  - 没有给出具体成品与效果数据
+  source_refs:
+  - XP-T-001
+  legacy_source_refs:
+  - XP-T-001#P052-P055
+- id: XP-C-003
+  title: 基于全部资料重写简历
+  case_type: demonstration
+  summary: 利用已上传的个人资料，按 STAR 原则重写简历，并让最近工作经历更详细。
+  inputs:
+  - 关于我资料
+  - 职业规划
+  - 原简历
+  process:
+  - 提取职业定位
+  - 按 STAR 组织成果
+  - 按时间远近控制详略
+  outputs:
+  - 结构化简历
+  lessons:
+  - 长期画像可复用于不同任务
+  - 简历应突出最近且可证明的成果
+  limitations:
+  - STAR 定义未在材料展开
+  - 示例成品未提供
+  source_refs:
+  - XP-T-001
+  legacy_source_refs:
+  - XP-T-001#P067-P074
+- id: XP-C-004
+  title: 每周画像与季度简历更新
+  case_type: workflow
+  summary: 要求按周基于对话和文件更新对用户的理解，按季度更新简历。
+  inputs:
+  - 本周对话
+  - 上传文件
+  - 项目成果
+  process:
+  - 每周提取变化
+  - 更新画像
+  - 每季度筛选成果
+  - 生成简历变更候选
+  outputs:
+  - 用户画像增量
+  - 季度简历候选版本
+  lessons:
+  - 长期智能体需要维护机制
+  - 更新应由用户审核
+  limitations:
+  - 来源默认平台会保存全量对话，实际需验证
+  source_refs:
+  - XP-T-001
+  legacy_source_refs:
+  - XP-T-001#P075-P081
+- id: XP-C-005
+  title: 职场教练：逐问深化再给行动
+  case_type: demonstration
+  summary: 职场教练被约束为每次只问一个问题，约十轮后给行动建议；示例围绕升职、离开和职业安全感逐层追问。
+  inputs:
+  - 用户个人画像
+  - 当前职场困惑
+  process:
+  - 一次一个问题
+  - 从表层诉求追到真实标准
+  - 区分事实与认知
+  - 形成近期行动
+  outputs:
+  - 问题澄清
+  - 行动清单
+  - 复盘触发条件
+  lessons:
+  - 教练式对话需要节奏约束
+  - 行动建议应落到时间和具体任务
+  limitations:
+  - 完整 Skill 文档未包含在逐字稿中，不能复原其十个教练模型
+  source_refs:
+  - XP-T-001
+  legacy_source_refs:
+  - XP-T-001#P082-P101
+- id: XP-C-006
+  title: 目标管理 Skill 的口述构建
+  case_type: method_demo
+  summary: 按四/五步法口述目标管理 Skill：场景痛点结果、思维模型、前后步骤、人机迭代。
+  inputs:
+  - 领导布置工作等场景
+  - 痛点与期待
+  - 目标管理模型
+  - 组织与个人情境
+  process:
+  - 口述四个模块
+  - 让智能体整理
+  - 生成 Skill
+  - 测试与迭代
+  outputs:
+  - 目标管理 Skill
+  lessons:
+  - 先讲清结构再让模型整理
+  - 首次生成后要调试
+  limitations:
+  - 部分模型名称识别有误，定义不完整
+  source_refs:
+  - XP-T-002
+  legacy_source_refs:
+  - XP-T-002#P034-P062
+- id: XP-C-007
+  title: 下周 50 万营收目标拆解
+  case_type: demonstration
+  summary: 以“下周做到 50 万营收”为测试，智能体先确认营收口径，再结合组织战略、领导风格、资源和多个目标管理模型生成方案。
+  inputs:
+  - 50 万目标
+  - 截止时间
+  - 个人与组织画像
+  process:
+  - 补充情境智慧
+  - 确认签约额/到账额口径
+  - 拆关键路径和资源
+  - 安排优先级、汇报和复盘
+  outputs:
+  - 确认清单
+  - OKR/KR
+  - 资源与时间权衡
+  - 日程与汇报模板
+  - 复盘与沉淀
+  lessons:
+  - 先确认口径再拆目标
+  - 上下文决定方案是否具体
+  limitations:
+  - 示例中的公司数据未提供，不能复现数值正确性
+  source_refs:
+  - XP-T-002
+  legacy_source_refs:
+  - XP-T-002#P061-P079
+- id: XP-C-008
+  title: 副业陪跑 Doer
+  case_type: agent_role
+  summary: 创建“副业陪跑专家”作为执行角色，负责把项目具体化、安排日程、验证假设、记录反馈、算投入产出并判断继续或暂停。
+  inputs:
+  - 已筛选的副业项目
+  - 用户资源与约束
+  process:
+  - 拆行动步骤
+  - 安排日程和资源
+  - 跟踪成本收益
+  - 周期性复盘
+  outputs:
+  - 执行计划
+  - 假设清单
+  - 项目台账
+  - 继续/暂停建议
+  lessons:
+  - Doer 的职责应包含执行与反馈闭环
+  - 成本收益必须显式记录
+  limitations:
+  - 来源没有提供标准化财务模型
+  source_refs:
+  - XP-T-003
+  legacy_source_refs:
+  - XP-T-003#P013-P020
+- id: XP-C-009
+  title: 副业情报 Collector
+  case_type: agent_role
+  summary: 创建情报搜集角色，全网搜集副业项目和新机会，每周提交候选供评估。
+  inputs:
+  - 调研范围
+  - 硬标准
+  - 更新频率
+  process:
+  - 搜集
+  - 去重
+  - 按标准筛选
+  - 定期交付
+  outputs:
+  - 机会清单
+  - 来源与证据
+  lessons:
+  - Collector 必须有范围和硬标准
+  - 搜索结果需要来源审查
+  limitations:
+  - 来源中的“全网”能力取决于平台工具与权限
+  source_refs:
+  - XP-T-003
+  legacy_source_refs:
+  - XP-T-003#P021-P023
+  - XP-T-003#P040-P043
+- id: XP-C-010
+  title: Collector/Planner/Doer 项目组
+  case_type: workflow
+  summary: 把调研分析师、副业架构师和主智能体放入同一项目，明确谁搜信息、谁出方案、谁产出商业计划书。
+  inputs:
+  - 项目目标
+  - 角色定义
+  - 交付标准
+  process:
+  - 分工
+  - 明确寻址
+  - 允许并行工作
+  - 汇总交付
+  outputs:
+  - 调研报告
+  - 项目架构
+  - 商业计划书
+  lessons:
+  - 角色边界与交接协议比 Agent 数量重要
+  - 可并行但必须有最终验收
+  limitations:
+  - 平台特定的 @ 机制不一定适用于其他系统
+  source_refs:
+  - XP-T-003
+  legacy_source_refs:
+  - XP-T-003#P023-P031
+  - XP-T-003#P042-P053
+- id: XP-C-011
+  title: 三种循环监督模式
+  case_type: workflow_pattern
+  summary: 先单轮试跑；重大事项由人逐轮判断；低风险任务让系统多轮自迭代，人负责监督后再介入。
+  inputs:
+  - 任务风险
+  - 可逆性
+  - 验收指标
+  process:
+  - 试跑链路
+  - 评估错误成本
+  - 选择人机监督模式
+  - 限制迭代次数
+  outputs:
+  - 工作流配置
+  - 人工审批点
+  lessons:
+  - 自动化程度应随风险调整
+  - 闭环必须有停止条件
+  limitations:
+  - 原转写术语有误，工程上暂映射为 Human-in/on-the-loop
+  source_refs:
+  - XP-T-003
+  legacy_source_refs:
+  - XP-T-003#P031-P039
+- id: XP-C-012
+  title: 用案例增强商业计划书
+  case_type: knowledge_augmentation
+  summary: 在商业计划书 1.0 后加入安克、颠覆式创新、新西兰船队和 Chobani 等案例，让系统重做 2.0。
+  inputs:
+  - 商业计划书 1.0
+  - 外部案例与模型
+  process:
+  - 提取案例方法
+  - 映射当前项目
+  - 更新定位、MVP、风险和路径
+  - 比较版本差异
+  outputs:
+  - 商业计划书 2.0
+  lessons:
+  - 案例库可以增强 Planner
+  - 必须说明类比链条与适用条件
+  limitations:
+  - 案例正文不在附件中，无法验证 AI 的具体提炼是否忠实
+  source_refs:
+  - XP-T-003
+  legacy_source_refs:
+  - XP-T-003#P075-P093
+  - XP-T-003#P110-P118
+- id: XP-C-013
+  title: 从工资到副业的三阶段路径
+  case_type: strategy
+  summary: 先稳定工资并在真实工作中打磨智能体，再提升思维与知识库，最后以小规模实验验证副业。
+  inputs:
+  - 当前职业与现金流
+  - AI 使用能力
+  - 思维模型储备
+  process:
+  - 保留主业
+  - 形成可证明成果
+  - 建设终身学习 Skill
+  - 验证副业 MVP
+  outputs:
+  - 阶段性成长路线
+  lessons:
+  - 先增加能力和证据，再放大风险
+  - 副业不应被当作一口吃成胖子
+  limitations:
+  - 个人财务和职业情况差异很大
+  source_refs:
+  - XP-T-003
+  legacy_source_refs:
+  - XP-T-003#P118-P121
+- id: XP-C-014
+  title: 在现岗中试炼优势假设
+  case_type: method_demo
+  summary: 以会计岗为例，先把任务拆成偏“事”和偏“人”的部分，在现岗争取更多候选长板任务，通过结果、反馈和主观打分连续记录。
+  inputs:
+  - 当前岗位任务清单
+  - 候选优势假设
+  - 可见结果与他人反馈
+  process:
+  - 选一个低风险任务试做
+  - 每日记录结果、速度、反馈和感受
+  - 一周后判断是加码、换任务还是放弃假设
+  outputs:
+  - 优势假设证据表
+  - 下一轮试炼计划
+  lessons:
+  - 优势可以在现岗局部验证，不必立即跳槽
+  - 主观感受需与客观结果交叉
+  limitations:
+  - 示例未提供实际数据和最终结果
+  source_refs:
+  - XP-T-004#P081-P105
+- id: XP-C-015
+  title: 用同公司转岗拆分转行难度
+  case_type: strategy
+  summary: 想从同行业 A 岗跳到 B 岗时，先在当前公司从 A 转 B，再以 B 岗身份同岗换公司，把一次非连续跳跃拆成两步。
+  inputs:
+  - 目标岗位
+  - 当前公司内部转岗可能性
+  - 个人可复用能力
+  process:
+  - 先评估内部转岗
+  - 在目标岗位产生可证明结果
+  - 再做同岗同行业或同岗跨行业流动
+  outputs:
+  - 两步转岗路径
+  - 每步验收与回退条件
+  lessons:
+  - 减少同时变化的变量可降低跳跃难度
+  limitations:
+  - 内部转岗受组织规则、领导支持和岗位缺口制约
+  source_refs:
+  - XP-T-004#P172-P183
+- id: XP-C-016
+  title: 用行业与公司两层判断 offer
+  case_type: framework_demo
+  summary: 先用行业需求增长和公司市场位置做四象限定性分析，再为“瘦狗/问题/明星/金牛”不同位置设计留任、登陆点、换行业或换头部公司的路径。
+  inputs:
+  - 当前行业需求与增速
+  - 公司市场位置
+  - 目标岗位和个人优势
+  process:
+  - 定性定位公司
+  - 重新核验当前数据
+  - 匹配留任或迁移路径
+  outputs:
+  - offer 对比表
+  - 迁移风险与下一步
+  lessons:
+  - 公司不能脱离行业判断
+  limitations:
+  - 波士顿矩阵原本用于产品组合，迁移到个人职业选择是课程的类比用法
+  - 课程中的公司例子已过时
+  source_refs:
+  - XP-T-004#P424-P466
+- id: XP-C-017
+  title: 面试中核验专家岗和管理岗的真实条件
+  case_type: interview_workflow
+  summary: 专家岗重点追问汇报线、领导风格与资源调动权；管理岗重点追问团队成功记录、专业人才、人事权和招聘权。
+  inputs:
+  - 岗位类型
+  - 组织架构信息
+  - 具体资源冲突情景
+  process:
+  - 先判断岗位主要靠专业还是管理产生结果
+  - 以具体情景追问对方过往做法
+  - 核验资源、决策和用人权限
+  outputs:
+  - 岗位条件证据清单
+  - 红旗与待核信息
+  lessons:
+  - 岗位名称和职级通道不足以证明发展机会
+  limitations:
+  - 面试回答需与公开信息、员工反馈和合同条款交叉验证
+  source_refs:
+  - XP-T-004#P468-P503
+- id: XP-C-018
+  title: 把读研究生作为职业跃迁桥梁
+  case_type: decision_pattern
+  summary: 需要转岗、转行或换城市时，可以用在职或全日制学业建立新凭证和人脉，但先要定义目标岗位，并评估录取、完成、就业和退出可行性。
+  inputs:
+  - 当前问题和目标岗位
+  - 项目费用与时间
+  - 入学、毕业、就业和退出条件
+  process:
+  - 验证学业是否直接解决当下问题
+  - 与内部转岗、短期凭证和直接求职比较
+  - 设计资金和职业回退路径
+  outputs:
+  - 深造决策表
+  - 替代路径比较
+  lessons:
+  - 学历是工具而非默认目标
+  limitations:
+  - 课程对学费、名校人脉和就业的若干判断未提供外部数据
+  source_refs:
+  - XP-T-004#P195-P207
+  - XP-T-004#P547-P567
+- id: XP-C-019
+  title: 从高薪大厂岗位探索社区服务第二曲线
+  case_type: live_call_example
+  summary: 课程转述一位大厂从业者在社区团购中获得意义感，并将其作为小而美社区服务企业的第二曲线候选。
+  inputs:
+  - 当前职业资源与现金流
+  - 社区服务试验经验
+  - 个人意义感与家庭约束
+  process:
+  - 先识别试验中的意义感和可复用优势
+  - 再用小规模验证用户需求与单位经济
+  - 设计与主业并行或有条件切换的路径
+  outputs:
+  - 第二曲线假设
+  - 最小试炼与停止条件
+  lessons:
+  - 意义感可以产生候选方向，但仍需商业与风险验证
+  limitations:
+  - 只有课程转述，无后续行动与结果
+  - 不能由个案推导高薪大厂从业者普遍适合创业
+  source_refs:
+  - XP-T-004#P569-P585

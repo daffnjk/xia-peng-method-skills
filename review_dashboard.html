@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>知识审阅页构建入口</title>
+<body style="font-family:system-ui;max-width:760px;margin:60px auto;padding:20px">
+<h1>知识审阅页由源资产生成</h1>
+<p>旧静态副本已退出维护，避免展示过期来源、技能和题目数量。</p>
+<pre>python -m pip install -r requirements-dev.txt
+python scripts/assets.py validate
+python scripts/assets.py build</pre>
+<p>构建后在本机打开 <code>dist/review_dashboard.html</code>。构建不证明模型行为通过，也不授予课程分发权。</p>
+</body></html>

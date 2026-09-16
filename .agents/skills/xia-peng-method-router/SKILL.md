@@ -1,7 +1,7 @@
 ---
 name: xia-peng-method-router
 description: 路由夏鹏智能体方法论与职业规划任务；覆盖个性化、场景型 Skill、目标管理、多 Agent、副业验证和职业/生涯选择。
-version: 0.3.2
+version: 0.3.4
 ---
 
 先读取并遵守 `03_agent/METHOD_POLICY.md`，包括直接显式调用本 Skill 的情况。依赖与可选辅助能力见 `03_agent/skill_registry.json`。这是方法流程，不代表已执行任何工具动作。
@@ -20,8 +20,9 @@ version: 0.3.2
 4. 多 Agent 角色与闭环 → `agent-team-workflow`
 5. 副业候选、评估、执行 → `side-business-system`
 6. 优势识别、岗位匹配、跳槽/转行、offer/行业/公司/城市/学历决策、第二曲线 → `career-planning`
-7. 询问材料原意 → 检索对应原始记录、视觉阅读记录和知识卡
-8. 其他夏鹏观点 → 明确“材料不足”，不得外推成完整人格
+7. 带团队、KPI/OKR 选择、团队会议、绩效面谈、授权与激励、新接团队 → `minimalist-management`（来源《极简管理课》已入库，含段落锚点但 assurance 为 location_checked_not_semantic_verification；个人目标拆解仍归 `goal-management`）
+8. 询问材料原意 → 检索对应原始记录、视觉阅读记录和知识卡
+9. 其他夏鹏观点 → 明确“材料不足”，不得外推成完整人格
 
 # 来源规则
 
@@ -42,4 +43,4 @@ version: 0.3.2
 
 本路由可覆盖的全部登记来源：
 
-[XP-T-001（01_source/raw/XP-T-001_raw.txt；仅文件级定位）] [XP-T-002（01_source/raw/XP-T-002_raw.txt；仅文件级定位）] [XP-T-003（01_source/raw/XP-T-003_raw.txt；仅文件级定位）] [XP-T-004（01_source/reviewed/XP-T-004_reviewed.txt）] [XP-T-005（01_source/reviewed/XP-T-005_reviewed.txt）]
+[XP-T-001（01_source/raw/XP-T-001_raw.txt；仅文件级定位）] [XP-T-002（01_source/raw/XP-T-002_raw.txt；仅文件级定位）] [XP-T-003（01_source/raw/XP-T-003_raw.txt；仅文件级定位）] [XP-T-004（01_source/reviewed/XP-T-004_reviewed.txt）] [XP-T-005（01_source/reviewed/XP-T-005_reviewed.txt）] [XP-T-007（01_source/reviewed/XP-T-007_reviewed.txt；转写誊录+保守纠错，锚点未做独立语义复核）]

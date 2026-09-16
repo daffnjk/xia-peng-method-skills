@@ -3,7 +3,7 @@
   "skills": [
     {
       "name": "xia-peng-method-router",
-      "version": "0.3.2",
+      "version": "0.3.4",
       "kind": "router",
       "description": "一个主流程加按需辅助能力；先检查证据和授权。",
       "source_refs": [
@@ -11,7 +11,8 @@
         "XP-T-002",
         "XP-T-003",
         "XP-T-004",
-        "XP-T-005"
+        "XP-T-005",
+        "XP-T-007"
       ],
       "skill_refs": [],
       "resources": []
@@ -88,6 +89,19 @@
       ],
       "skill_refs": [
         "understand-me"
+      ],
+      "resources": []
+    },
+    {
+      "name": "minimalist-management",
+      "version": "0.2.1",
+      "kind": "workflow",
+      "description": "带团队的目标管理、KPI/OKR 选择、六顶帽子会议、情景领导、授权与激励、绩效面谈、新接团队序列。",
+      "source_refs": [
+        "XP-T-007"
+      ],
+      "skill_refs": [
+        "goal-management"
       ],
       "resources": []
     }

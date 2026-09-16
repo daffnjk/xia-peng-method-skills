@@ -16,30 +16,36 @@
   - XP-T-002#P016
 - model_id: XP-M-003
   name: SMART
-  source_definition: 仅作为目标管理模型被提及
-  status: external_definition_required
+  source_definition: S=specific具体，对名词和形容词连续追问；M=measurable可测量，用数字描述（涨薪30%而非"我要发展"）；A=attainable可达到，用外部案例或过往案例对标，设高目标与底线目标（保五六万冲30万）；R=related相关性，与沟通对象相关且挂接更大的目标；T=timeline时间表，没有时间的目标全是空谈。既是自查需求的工具，也是抓对方需求的求真工具。
+  status: source_defined
   source_refs:
   - XP-T-002
   - XP-T-004#P246-P247
   - XP-T-004#P565-P566
+  - XP-T-007#P011-P020
+  - XP-T-006#P016-P021
   legacy_source_refs:
   - XP-T-002#P044-P045
   - XP-T-002#P069-P071
+  - XP-T-008#P081
+  - XP-T-008#P091
 - model_id: XP-M-004
   name: OKR
-  source_definition: 仅作为目标拆解模型被提及
-  status: external_definition_required
+  source_definition: 仅作为目标拆解模型被提及；XP-T-007 补充：组织只给方向（如“今年核心做收入”），个人做目标响应、说清与方向的关联度，自下而上聚合形成组织目标；适用探索业务、知识劳动、非标小闭环、变动环境与差异化战略；蕴含主动性原则，对员工培养优于 KPI，落地抓手是给方向后多问员工想法。
+  status: source_defined
   source_refs:
   - XP-T-002
+  - XP-T-007#P004-P009
   legacy_source_refs:
   - XP-T-002#P044-P045
   - XP-T-002#P072
 - model_id: XP-M-005
   name: KPI
-  source_definition: 仅作为目标分解模型被提及
-  status: external_definition_required
+  source_definition: 仅作为目标分解模型被提及；XP-T-007 补充：自上而下的目标分解与分配，适用熟悉业务、体力劳动、重复性、标准化流程、稳定环境与成本领先战略，核心是提效而非探索。
+  status: source_defined
   source_refs:
   - XP-T-002
+  - XP-T-007#P004-P008
   legacy_source_refs:
   - XP-T-002#P044-P045
 - model_id: XP-M-006
@@ -66,6 +72,7 @@
   status: source_defined
   source_refs:
   - XP-T-002
+  - XP-T-006#P075
   legacy_source_refs:
   - XP-T-002#P044-P045
 - model_id: XP-M-009
@@ -217,3 +224,139 @@
   status: source_defined_external_concept
   source_refs:
   - XP-T-004#P569-P587
+- model_id: XP-M-035
+  name: 六顶帽子（六顶思考帽）
+  source_definition: 白=客观事实与数据；绿=创造想象与差异化；黄=价值肯定、乐观建设性；黑=合乎逻辑的批判（非情感批判）；红=情绪、本能、直觉（抒发而非压抑）；蓝=调节五色比例与顺序并做结论（宜领导佩戴或重点培养擅长者）。同一时间段全员同色思维以避免冲突与跑题；顺序不必然（参考序：红→白→绿→黑→黄→蓝）但每色至少一次、时间均衡、黑色忌过多；需仪式感；同步思维模式但表达不同角度；擅长者压轴发言；平时练习识别他人所戴帽子并同色回应。
+  status: source_defined_external_model
+  source_refs:
+  - XP-T-007#P044-P053
+- model_id: XP-M-036
+  name: 情景领导力（S1-S4 × D1-D4）
+  source_definition: 按支持性行为×指导性行为分四种风格：S1 命令型（高指导低支持，告知指令单向沟通）、S2 教练型（双高，次序固定：倾听→参与→反馈→指导→引导）、S3 支持型（高支持低指导，鼓励试错）、S4 授权型（双低，观察倾听鼓励）。发展阶段按意愿×能力：D1 有意愿无能力、D2 能力升意愿降、D3 熟事愿做新事胆怯、D4 双高；评估维度为知识（what）、技能（how）、动力、自信。匹配使用；对 D4 过度管理即不信任，对 D1-D3 全授权即疏于管理；目标决定权不外授。
+  status: source_defined_external_model
+  source_refs:
+  - XP-T-007#P078-P087
+- model_id: XP-M-037
+  name: 麦肯锡七步解决问题（七步成诗）
+  source_definition: 定义问题（以“不解决会怎样/解决会怎样”判断紧迫性）→分解要素（客观拆解如收入=用户数×单笔，非找原因）→划分优先级→安排分析计划与工作时间表并落责权利（专家掌权）→小规模取证验证（MVP）→合成结论（按 SMART 定下一步目标）→大规模行动；验证不成立回到第一步。全程保持客观、无归责。
+  status: source_defined_external_model
+  source_refs:
+  - XP-T-007#P061-P065
+- model_id: XP-M-038
+  name: 期望理论（人会成为他所期望的样子）
+  source_definition: 激励的本质：员工自己先要有内在动力（那个“1”），领导在外部环境补零让动力可持续；反复打压会形成习得性无助。要素：设定合理目标（对标外部与历史、跳一跳够得着）+下属对目标的认同感（OKR 下属写领导改、集体决策、入职第一天讲长板优势）。领导仅靠外部塑造不够，内部动机才是动力所在。
+  status: source_defined_external_concept
+  source_refs:
+  - XP-T-007#P103-P106
+- model_id: XP-M-039
+  name: 公平理论（获得/付出比值）
+  source_definition: 公平是一种感觉而非客观存在：我获得的÷我付出的 = 他人获得的÷他人付出的，即多劳多得。因此必须公布取得绩效的过程（周报、打卡、加班、拜访频率等），把获得（结果）与付出（过程）同时展现；公平不是平均——平均不产生绩效，绩效必须有淘汰；绩效体系越复杂越做不到公平，要简单且过程可见。
+  status: source_defined_external_concept
+  source_refs:
+  - XP-T-007#P108-P113
+- model_id: XP-M-040
+  name: 汉龙剃刀
+  source_definition: 先假设所有人都是善意的；采用博弈论式回应——传递善意后对方仍恶意则确认真恶直接处理，对方善意则互相强化。不先猜恶意：假设恶意会使自己的行为认知不自觉向对抗靠拢。与奥卡姆剃刀（如无必要勿增实体，流程尽量简单）并称授权与流程设计的两把剃刀；没有完美的系统，只有不断完美的人。
+  status: source_defined_external_concept
+  source_refs:
+  - XP-T-007#P069-P071
+  - XP-T-007#P100-P101
+  - XP-T-008#P108-P109
+- model_id: XP-M-041
+  name: 管理三阶段（劳动效率→组织效率→个人效率）
+  source_definition: 第一阶段使劳动生产率最大化的手段是分工（调研三方期待→科学划分工作元素→流程→岗位先于人→选择占80%+按岗位培训→日常只沟通目标/授权/激励→平等对待）；第二阶段使组织效率最大化的手段是专业水平和等级制度的结合（权力与职位相关、职位与目标相关与薪酬无关、形成上升通道）；第三阶段个人效率靠激励且不设上限。三者递进不可倒序；先有劳动效率才有支付能力。
+  status: source_defined
+  source_refs:
+  - XP-T-007#P130-P139
+- model_id: XP-M-030
+  name: GROW 教练模型（课程版）
+  source_definition: 外圈按 Goal 到 Reality 到 Options 到 Way forward 的时序推进不可跳步：先定目标与意义，再析现状（做了哪些努力、结果、障碍、他人视角），再穷举选项（复数、不谈阻碍、做不成也想试），最后压行动计划与时间表；内圈为知识、方法、技能与更内层的专注、热情、信念（认知系统），内圈缺失时外圈提问无法生效，且属于招聘问题。可把"你"换"我"自查，换"我们"协同。
+  status: source_defined
+  source_refs:
+  - XP-T-006#P080-P088
+  - XP-T-008#P095
+  principle_refs:
+  - XP-P-085
+- model_id: XP-M-031
+  name: 价值需求层次模型
+  source_definition: 自下而上：底层系统认知决定身份，身份决定价值观与信念，信念决定能力，能力决定行为，行为产生结果与客观环境；最上层（认知）绝对主观，最下层（结果）绝对客观，客观结果的绝对性会短期限制主观认知。用法是逐级高位引领：先认同对方对客观环境的解读，再逐级上拉（结果、行为、能力、价值观、身份）做未来展望，不做自上而下的历史归因。课程自述该模型来自抖音"关教练"的教练技术，非夏鹏原创。
+  status: source_adapted_external_model
+  source_refs:
+  - XP-T-006#P057-P061
+  principle_refs:
+  - XP-P-082
+- model_id: XP-M-032
+  name: ABC 情绪模型（课程版）
+  source_definition: A=action行为，B=belief信念（对行为的解读），C=consequence情绪结果；情绪不直接由他人行为产生，而由自己的信念产生。控制情绪靠修正或阻断B，针对对方行为理性表达，而非压抑或发泄。
+  status: source_defined_external_model
+  source_refs:
+  - XP-T-006#P065
+  principle_refs:
+  - XP-P-083
+- model_id: XP-M-033
+  name: STN 客户拜访模式
+  source_definition: 高频客户拜访的三类任务：S=satisfactory 问满意度并收建议（建议即需求），T=try out 新品试用扩品类（用的品类越多单笔付费越高），N=new users 老客户推荐新客户获客。配套逻辑：高频拜访发现新需求，产品迭代，提高转移成本，提高付费意愿；组织侧对应"员工客户化、客户员工化"，指标用NPS净推荐值。
+  status: source_defined
+  source_refs:
+  - XP-T-006#P099-P103
+  principle_refs:
+  - XP-P-087
+- model_id: XP-M-034
+  name: 权责利三位一体
+  source_definition: 权=裁量权（这件事我说了算），责=为结果负责，利=做成得利、做败担损；三者必须等量匹配，先分责任再按责任配权配利。失衡诊断：责任独大导致消极怠工；权力独大导致人人巴结；利益独大导致争夺肥缺；有责无权则无法负责，有权有利无责则苦一线与中层。
+  status: source_defined
+  source_refs:
+  - XP-T-006#P091-P095
+  principle_refs:
+  - XP-P-086
+- model_id: XP-M-042
+  name: 中庸四区域对角线牵拉模型（中庸模型）
+  source_definition: 情绪按高低与愉悦分伤病、消极、积极、认知四区，对应喜怒哀乐；用对角线区域的动作把当前极端牵拉回中庸，都经历了才中庸，中庸是动态平衡不是静态标准。
+  status: source_adapted_external_model
+  source_refs:
+  - XP-T-008#P015-P028
+- model_id: XP-M-043
+  name: 三体理论（情绪体、记忆体、信念体）
+  source_definition: 出自顾及《破圈》，三种惯性模式压抑真实自我；分别用深刻的体验、透彻的思考、持续的实践打破；适用于长期重复的心理内耗。
+  status: source_defined_external_model
+  source_refs:
+  - XP-T-008#P034-P056
+- model_id: XP-M-044
+  name: 刺激-选择-回应
+  source_definition: 关联史蒂芬·柯维（在刺激与回应之间有选择的自由、事物被创造两次）；课程用沙漠一瓶水三层思想实验展开一次本能、二次本能与二次纠偏。
+  status: source_defined_external_model
+  source_refs:
+  - XP-T-008#P058-P063
+  - XP-T-008#P069
+- model_id: XP-M-045
+  name: 习得性无助
+  source_definition: 心理学概念（塞利格曼）在课程中的应用，因为A所以我做不到B的句式识别；破解是把句式改为要达成B需要什么条件并主动创造条件。
+  status: source_defined_external_concept
+  source_refs:
+  - XP-T-008#P003
+  - XP-T-008#P063
+  - XP-T-008#P080
+- model_id: XP-M-046
+  name: 五W两H追问法
+  source_definition: 用what/why/when/where/who加how much/how long逐层追问，纵向五个层次一问一答往来约五次还原事实；与切分（拆句子的核心词）连续使用。
+  status: source_defined_heuristic
+  source_refs:
+  - XP-T-008#P050-P052
+- model_id: XP-M-047
+  name: 奥卡姆剃刀
+  source_definition: 如无必要勿增实体；课程用于人际与事务做减法、判断需求真实性与退出低价值连接。
+  status: source_defined_external_concept
+  source_refs:
+  - XP-T-008#P105-P107
+- model_id: XP-M-048
+  name: 阿德勒个体心理学（目标论）
+  source_definition: 目标决定我们的行为而不是过去的经历；自卑感给动力、优越感给方向，需翻译成具体目标；《被讨厌的勇气》为岸见一郎对该学说的转述，非阿德勒本人著作。
+  status: source_defined_external_model
+  source_refs:
+  - XP-T-008#P076-P090
+- model_id: XP-M-049
+  name: 罗森塔尔效应（皮格马利翁效应）
+  source_definition: 教师预期影响学生表现的经典效应；课程用于说明人被目标牵引、管理者应打心底认为员工能做成。
+  status: source_defined_external_concept
+  source_refs:
+  - XP-T-008#P138

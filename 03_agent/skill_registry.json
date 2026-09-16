@@ -94,7 +94,7 @@
     },
     {
       "name": "minimalist-management",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "kind": "workflow",
       "description": "带团队的目标管理、KPI/OKR 选择、六顶帽子会议、情景领导、授权与激励、绩效面谈、新接团队序列。",
       "source_refs": [

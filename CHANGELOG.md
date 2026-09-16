@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased — XP-T-006/007/008 录入审查修复（2026-09-17）
+
+- 审查发现并修复 `minimalist-management` 晋级遗留的过时来源声明（0.2.1→0.2.2）：禁止事项与来源脚注仍写"inbox 暂存未审核、仅文件级定位"，与正文 141 段锚点 reviewed 来源矛盾；统一为 reviewed 文件 + location_checked_not_semantic_verification 口径，脚注措辞与路由（0.3.4）一致。
+- 已晋级候选存档 `08_ops/skill_candidates/minimalist-management/SKILL.md` 状态改为 archived 并加存档说明，避免被误认为待审候选；examples.md/change_log.md 按其存档定位保留。
+- `03_agent/METHOD_POLICY.md` 来源清单由 5 个补全为 8 个（新增 XP-T-006/007/008 及注册/候选状态说明）；XP-T-004 的段落锚点使用规则扩展至 XP-T-006—008。
+
 ## Unreleased — 情绪管理课接入 XP-T-008（2026-09-16）
 
 - 新增来源 `XP-T-008`：《情绪管理》逐字稿（导言、五讲、复习答疑直播），保留原稿并生成 P001—P147 带锚点保守校对稿；约 120 条高置信转写更正记入 correction_log，20 余项存疑词记入 uncertain_terms。

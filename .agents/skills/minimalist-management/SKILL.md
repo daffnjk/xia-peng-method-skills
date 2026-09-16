@@ -1,7 +1,7 @@
 ---
 name: minimalist-management
 description: 基于夏鹏《极简管理课》八讲，处理带团队场景：目标管理与 KPI/OKR 选择、开会、跟进复盘、情景领导、授权、激励与绩效面谈、新接团队的操作序列。
-version: 0.2.1
+version: 0.2.2
 ---
 
 先读取并遵守 `03_agent/METHOD_POLICY.md`，包括直接显式调用本 Skill 的情况。依赖与可选辅助能力见 `03_agent/skill_registry.json`。这是方法流程，不代表已执行任何工具动作。
@@ -72,10 +72,10 @@ version: 0.2.1
 
 # 禁止事项
 
-- 不伪造 XP-T-007 的段落锚点或页码；引用只到文件级并声明未审核。
+- 不伪造 XP-T-007 的段落锚点或页码；锚点仅定位核验（location_checked_not_semantic_verification），未经独立语义复核，引用时如实声明。
 - 不把课程主张当作已独立验证的管理科学；"拉动 30%"等数字按讲师经验处理。
 - 不输出贬损、羞辱、变相强迫的"管理技巧"；不替用户做真实人事、薪酬决定。
 
 # 来源
 
-[XP-T-007（01_source/inbox/XP-T-007/raw_transcript.txt；inbox 暂存未审核；仅文件级定位）]
+[XP-T-007（01_source/reviewed/XP-T-007_reviewed.txt；转写誊录+保守纠错，141 段锚点，未做独立语义复核）]

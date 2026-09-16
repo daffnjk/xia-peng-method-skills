@@ -1,5 +1,26 @@
 # Changelog
 
+## Unreleased — XP-T-006/007/008 授权与合并 main（2026-09-17）
+
+- 用户于 2026-09-17 会话中明确指示：三门课（XP-T-006/007/008）授权、允许发布、合并 main。manifest 三行 `rights_status` 由 `not_recorded` 改为 `authorized`，并在 notes 记录授权来源与日期；XP-T-001—005 授权状态不变。
+- 授权范围与未验证项如实声明：本次为用户明确授权，不代表真实宿主行为回归已运行（XP-E-099—128 共 30 题从未执行）、锚点语义人工复核未做、`release_approval.example.json` 式绑定评分报告哈希的公共发布审批文件未创建（无评分报告可绑定）。发布检查清单中依赖这些证据的项仍未勾选。
+- 执行 `feature/xp-t-006-008-courses` → `main` 合并（--no-ff，本地仓库无远端）。
+
+## Unreleased — XP-T-006/007/008 录入审查修复（2026-09-17）
+
+- 审查发现并修复 `minimalist-management` 晋级遗留的过时来源声明（0.2.1→0.2.2）：禁止事项与来源脚注仍写"inbox 暂存未审核、仅文件级定位"，与正文 141 段锚点 reviewed 来源矛盾；统一为 reviewed 文件 + location_checked_not_semantic_verification 口径，脚注措辞与路由（0.3.4）一致。
+- 已晋级候选存档 `08_ops/skill_candidates/minimalist-management/SKILL.md` 状态改为 archived 并加存档说明，避免被误认为待审候选；examples.md/change_log.md 按其存档定位保留。
+- `03_agent/METHOD_POLICY.md` 来源清单由 5 个补全为 8 个（新增 XP-T-006/007/008 及注册/候选状态说明）；XP-T-004 的段落锚点使用规则扩展至 XP-T-006—008。
+
+## Unreleased — 情绪管理课接入 XP-T-008（2026-09-16）
+
+- 新增来源 `XP-T-008`：《情绪管理》逐字稿（导言、五讲、复习答疑直播），保留原稿并生成 P001—P147 带锚点保守校对稿；约 120 条高置信转写更正记入 correction_log，20 余项存疑词记入 uncertain_terms。
+- 新增知识卡：原则 XP-P-104—132（能力与情绪、情绪创可贴、中庸四区与对角线牵拉、三体理论及其三策略、刺激-选择-回应、习得性无助、目标论、社会化与两把剃刀、利他、话语分析等）；模型 XP-M-042—049，并为 SMART/GROW/汉龙剃刀补 XP-T-008 引用；主张审计 XP-CL-030—034（百倍效果、目标治百病、卖房观点等降级处理）；案例 XP-C-022—023。
+- 新增题库 `06_evals/emotion_management_evals.jsonl`（XP-E-119—128），覆盖来源归属、适用边界、方法应用、话语分析与重大决策护栏；真实宿主行为回归未运行。
+- 新建候选 Skill `08_ops/skill_candidates/emotion-management`，按规则待用户审阅与行为评测，未进入自动发现目录。
+- 外部归属：三体理论出自顾及《破圈》，目标论关联阿德勒个体心理学，刺激-选择-回应关联柯维；课程营销段落保留原样。
+- 工作区同日另有会话接入 XP-T-006/XP-T-007 的未提交改动；本次编辑避让其 ID 区间（原则 073—103、模型 031—041、案例 020—021、题库 099—118）。
+
 ## Unreleased — 工程卫生与版本控制（2026-09-15）
 
 - 符号链接安全用例在无符号链接权限的 Windows 上改为跳过（探测可用性后 skipUnless）；本机测试套件恢复全绿，Linux CI 行为不变。

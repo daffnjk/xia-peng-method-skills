@@ -230,3 +230,35 @@
   use_policy: 改写为“优势、投入和匹配可作为提高职业适配度的候选因素”；不保证工作、收入或幸福结果。
   source_refs:
   - XP-T-004#P071-P073
+- id: XP-CL-030
+  claim: 两句话反复刻意练习后，情绪管理能力会比一般人强大至少一百倍
+  classification: hyperbole
+  use_policy: 课程营销式夸张，引用时降级为“坚持练习可显著改善”的主观预期，不得作为效果承诺或量化保证。
+  source_refs:
+  - XP-T-008#P006
+- id: XP-CL-031
+  claim: 目标注百病
+  classification: slogan
+  use_policy: 作为记忆口号保留原文；实际应用须按问题时间尺度分层选工具（创可贴、中庸、三体、选择、目标、利他），不得宣称单一方法解决所有情绪问题。
+  source_refs:
+  - XP-T-008#P090
+  - XP-T-008#P119
+- id: XP-CL-032
+  claim: 能力越大情绪越不重要；所有情绪问题只能靠自己的能力解决
+  classification: absolutist_core_claim
+  use_policy: 引用为课程核心假设与价值排序；不作为实证结论，不用于否定他人情绪困扰，不替代专业心理帮助。
+  source_refs:
+  - XP-T-008#P005
+  - XP-T-008#P010
+- id: XP-CL-033
+  claim: 现金为王，现金流可能出现危机时应卖房而不是提前还贷
+  classification: market_dependent_advice
+  use_policy: 课程中的个人财务观点，随市场与个人情况变化；不得作为财务建议执行，重大财务决策需用户独立评估并明确审批。
+  source_refs:
+  - XP-T-008#P071
+- id: XP-CL-034
+  claim: 情绪都是自己造成的，与他人无关，他人也无法帮忙
+  classification: attribution_stance
+  use_policy: 作为赋权式归因用于自我负责；不用于受害归责，不否定外部伤害、骚扰或结构性问题的现实。
+  source_refs:
+  - XP-T-008#P118-P119

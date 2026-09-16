@@ -1,0 +1,32 @@
+course:
+  source_id: XP-T-007
+  title: 极简管理课
+  series: ''
+  session: ''
+  recording_date: '2026-09-16'
+  publish_date: null
+  speaker: 夏鹏
+  source_type: transcript
+  original_filename: _tmp_xpt007.txt
+  language: zh-CN
+source_quality:
+  has_audio_or_video: false
+  has_timecodes: false
+  has_speaker_labels: false
+  has_slides_or_handout: false
+  transcription_method: unknown
+  known_typos_or_terms: []
+rights:
+  status: not_recorded
+  notes: ''
+integration_goal:
+  priority: normal
+  expected_domain: ''
+  expected_skill: ''
+  use_for_public_product: false
+  notes: ''
+processing:
+  status: knowledge_extracted
+  reviewer: ''
+  source_version: '1.0'
+  notes: 锚点与来源锁为位置校验（location_checked_not_semantic_verification），人工语义审阅未完成；2026-09-16 由后续会话补齐 metadata 状态、更正日志并入

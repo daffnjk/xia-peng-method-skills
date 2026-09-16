@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased — XP-T-006/007/008 授权与合并 main（2026-09-17）
+
+- 用户于 2026-09-17 会话中明确指示：三门课（XP-T-006/007/008）授权、允许发布、合并 main。manifest 三行 `rights_status` 由 `not_recorded` 改为 `authorized`，并在 notes 记录授权来源与日期；XP-T-001—005 授权状态不变。
+- 授权范围与未验证项如实声明：本次为用户明确授权，不代表真实宿主行为回归已运行（XP-E-099—128 共 30 题从未执行）、锚点语义人工复核未做、`release_approval.example.json` 式绑定评分报告哈希的公共发布审批文件未创建（无评分报告可绑定）。发布检查清单中依赖这些证据的项仍未勾选。
+- 执行 `feature/xp-t-006-008-courses` → `main` 合并（--no-ff，本地仓库无远端）。
+
 ## Unreleased — XP-T-006/007/008 录入审查修复（2026-09-17）
 
 - 审查发现并修复 `minimalist-management` 晋级遗留的过时来源声明（0.2.1→0.2.2）：禁止事项与来源脚注仍写"inbox 暂存未审核、仅文件级定位"，与正文 141 段锚点 reviewed 来源矛盾；统一为 reviewed 文件 + location_checked_not_semantic_verification 口径，脚注措辞与路由（0.3.4）一致。

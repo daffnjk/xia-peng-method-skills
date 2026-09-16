@@ -354,3 +354,24 @@ class Catalog:
             for ref in record.get('source_refs', []):
                 if self.resolve(ref)['locator'] != 'paragraph':
                     raise AssetError('Strict evidence gate: file-level citations still need human-verified locators')
+
+    def context(self, skill: str, query: str = '', limit: int = 8) -> dict:
+        if skill not in self.skills:
+            raise AssetError(f'Unknown Skill: {skill}')
+        if not 1 <= limit <= 50:
+            raise AssetError('limit must be between 1 and 50')
+        source_ids = {r.split('#')[0] for r in self.skills[skill]['source_refs']}
+        def related(item: dict) -> bool:
+            return bool(source_ids & {r.split('#')[0] for r in item.get('source_refs', [])})
+        tokens = set(re.findall(r'[\w-]+', query.lower()))
+        candidates = [r for kind in ('principle', 'case') for r in self.by_kind[kind] if related(r)]
+        candidates.sort(key=lambda r: (-sum(t in json.dumps(r, ensure_ascii=False).lower() for t in tokens), record_id(r)))
+        selected = candidates[:limit]
+        governance = [r for kind in ('claim', 'conflict', 'model') for r in self.by_kind[kind] if related(r)]
+        refs = sorted({ref for r in selected + governance for ref in r.get('source_refs', [])})
+        return {'asset_digest': self.identity(), 'primary_skill': skill,
+                'support_skills': self.skills[skill].get('skill_refs', []),
+                'policy_path': '03_agent/METHOD_POLICY.md', 'knowledge': selected,
+                'governance': governance, 'source_locations': [self.resolve(r) for r in refs],
+                'link_basis': 'conservative shared-source association; not a semantic entailment judgment',
+                'execution': 'context preparation only; no tool actions or profile reads'}

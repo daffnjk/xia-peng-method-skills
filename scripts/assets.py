@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Asset validation, deterministic packaging and scored-run validation."""
+"""Asset validation, deterministic packaging, context and scored-run validation."""
 from __future__ import annotations
 
 import argparse
@@ -226,6 +226,8 @@ def main() -> int:
     p = sub.add_parser('build'); p.add_argument('--public', action='store_true')
     p.add_argument('--approval', type=Path); p.add_argument('--report', type=Path)
     p = sub.add_parser('resolve'); p.add_argument('reference')
+    p = sub.add_parser('context'); p.add_argument('--skill', required=True)
+    p.add_argument('--query', default=''); p.add_argument('--limit', type=int, default=8)
     sub.add_parser('prepare-eval')
     p = sub.add_parser('grade-eval'); p.add_argument('report', type=Path)
     args = parser.parse_args()
@@ -244,6 +246,8 @@ def main() -> int:
             result = build(catalog, args.public, args.approval, args.report)
         elif args.action == 'resolve':
             result = catalog.resolve(args.reference)
+        elif args.action == 'context':
+            result = catalog.context(args.skill, args.query, args.limit)
         elif args.action == 'prepare-eval':
             result = prepare(catalog)
         else:

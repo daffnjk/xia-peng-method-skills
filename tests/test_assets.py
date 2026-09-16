@@ -32,9 +32,12 @@ def dump(root: Path, rel: str, value) -> Path:
 
 
 def fixture(root: Path) -> None:
-    for rel in ('schemas/assets.schema.json', '03_agent/skill_registry.json', '03_agent/METHOD_POLICY.md',
+    for rel in ('schemas/assets.schema.json',
                 'requirements-dev.txt', 'scripts/assetlib.py', 'scripts/assets.py'):
         put(root, rel, (ROOT / rel).read_bytes())
+    # Synthetic source IDs and Skill versions must not follow production assets.
+    put(root, '03_agent/skill_registry.json', (ROOT / 'tests/fixtures/skill_registry.json').read_bytes())
+    put(root, '03_agent/METHOD_POLICY.md', '# Synthetic policy\n\nDo not claim behavior evaluation.\n')
     records = {
         'principle': [{'id':'XP-P-001','title':'原则','statement':'来源观点，不承诺结果',
                        'evidence_type':'explicit','confidence':'high','when_to_use':['规划'],
@@ -72,8 +75,6 @@ def fixture(root: Path) -> None:
     for skill in registry['skills']:
         put(root,f'.agents/skills/{skill["name"]}/SKILL.md',
             f'---\nname: {skill["name"]}\ndescription: 测试任务\nversion: {skill["version"]}\n---\n\n遵守 03_agent/METHOD_POLICY.md\n')
-        for resource in skill.get("resources", []):
-            put(root, f'.agents/skills/{skill["name"]}/{resource}', "SYNTHETIC_REFERENCE_RESOURCE\n")
     evals=[dict(id=f'XP-E-{n:03}',category='source_recall',prompt=f'问题{n}',
                 expected_behavior='PRIVATE_EXPECTED_SENTINEL',forbidden_behavior='禁止编造',
                 score_dimensions=list(assetlib.DIMENSIONS),source_refs=['XP-T-001']) for n in (1,2)]

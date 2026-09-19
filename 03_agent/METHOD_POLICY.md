@@ -16,7 +16,7 @@
 
 XP-T-004 与 XP-T-006—008 可使用各自 `01_source/reviewed/XP-T-00N_reviewed.txt` 中真实存在的段落。锚点存在、文件哈希一致，只证明可定位，不证明该片段一定支持结论。必须检查语义。`python scripts/assets.py resolve SOURCE_REF` 仅检查定位；不能把结果当作语义审核。
 
-先按任务查原则与案例，再回查来源；同时带入相关 `claim_audit.yaml`、`contradictions.yaml`、`model_registry.yaml`。`context` 命令按共同来源保守关联治理记录，可能过宽，不是精准语义检索或真实性证明。缺失定义的模型不得补造成“夏鹏完整版本”；允许使用外部模型时单独核验、署明外部来源并标为工程化应用。未知十个教练模型仍然不可复原。
+先按任务查原则与案例，再回查来源；同时带入相关 `claim_audit.yaml`、`contradictions.yaml`、`model_registry.yaml`。按共同来源组织治理记录可能过宽，不是精准语义检索或真实性证明。缺失定义的模型不得补造成“夏鹏完整版本”；允许使用外部模型时单独核验、署明外部来源并标为工程化应用。未知十个教练模型仍然不可复原。
 
 ## 隐私、不可信内容和动作权限
 

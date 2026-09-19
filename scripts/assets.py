@@ -8,7 +8,6 @@ import json
 import os
 from pathlib import Path
 import shutil
-import subprocess
 import tempfile
 import zipfile
 
@@ -218,31 +217,6 @@ def grade(catalog: Catalog, path: Path) -> dict:
     return {'passed': len(seen), 'scoring': 'validated supplied scores; no automatic semantic judging'}
 
 
-def run_adapter(catalog: Catalog, command: list[str], timeout: int) -> dict:
-    if not command or not 1 <= timeout <= 600:
-        raise AssetError('Adapter command required; timeout must be 1..600 seconds per case')
-    prepare(catalog)
-    results = []
-    runtime = catalog.root / 'dist/runtime'
-    for case in catalog.evals:
-        payload = {'id': case['id'], 'prompt': case['prompt'], 'asset_digest': catalog.identity()}
-        try:
-            process = subprocess.run(command, input=canonical(payload), capture_output=True,
-                                     cwd=runtime, timeout=timeout, check=False)
-            if process.returncode:
-                raise AssetError(f'Adapter failed for {case["id"]}, code {process.returncode}')
-            answer = json_load(process.stdout.decode('utf-8'))
-            if not isinstance(answer, dict) or not isinstance(answer.get('answer'), str) or not answer['answer'].strip():
-                raise AssetError(f'Adapter did not return an answer for {case["id"]}')
-            results.append({'id': case['id'], 'answer': answer['answer'],
-                            'retrieved_refs': answer.get('retrieved_refs', [])})
-            write(catalog.root / 'dist/adapter-answers.jsonl', b''.join(canonical(r) for r in results))
-        except subprocess.TimeoutExpired as exc:
-            raise AssetError(f'Adapter timeout at {case["id"]}; partial answers retained') from exc
-    return {'answered': len(results), 'graded': False,
-            'warning': 'cwd isolation is not an OS sandbox; configure the host workspace and permissions separately'}
-
-
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=ROOT)
@@ -256,8 +230,6 @@ def main() -> int:
     p.add_argument('--query', default=''); p.add_argument('--limit', type=int, default=8)
     sub.add_parser('prepare-eval')
     p = sub.add_parser('grade-eval'); p.add_argument('report', type=Path)
-    p = sub.add_parser('run-evals'); p.add_argument('--timeout', type=int, default=120)
-    p.add_argument('command', nargs=argparse.REMAINDER)
     args = parser.parse_args()
     try:
         catalog = Catalog(args.root)
@@ -278,9 +250,6 @@ def main() -> int:
             result = catalog.context(args.skill, args.query, args.limit)
         elif args.action == 'prepare-eval':
             result = prepare(catalog)
-        elif args.action == 'run-evals':
-            command = args.command[1:] if args.command[:1] == ['--'] else args.command
-            result = run_adapter(catalog, command, args.timeout)
         else:
             result = grade(catalog, args.report)
         print(json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2))

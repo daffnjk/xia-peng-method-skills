@@ -22,8 +22,8 @@ $goal-management
 
 ## 维护模式
 
-直接编辑 `.agents/skills/`；不要编辑 `04_skills/` 再同步。旧同步命令默认停止，`--force` 不再提供覆盖功能。兼容检查可用 `python scripts/sync_codex_skills.py --check`；导出用 `python scripts/assets.py build`。
+直接编辑 `.agents/skills/`；不要编辑 `04_skills/` 再同步。校验使用 `python scripts/assets.py validate`，导出使用 `python scripts/assets.py build`。
 
-方法规则、知识或 Skill 变更后，除单元测试外还要执行真实宿主评测。被测实例仅挂载 `dist/runtime/`，题目通过 `dist/eval-prompts.jsonl` 逐条输入；不要把开发仓库及其标准答案一并挂载。适配器的工作目录不是操作系统级沙箱，权限隔离必须在宿主完成。
+方法规则、知识或 Skill 变更后，除单元测试外还要执行真实宿主评测。被测实例仅挂载 `dist/runtime/`，题目通过 `dist/eval-prompts.jsonl` 逐条输入；不要把开发仓库及其标准答案一并挂载。宿主负责模型调用、权限隔离和实际回答记录。
 
 平台安装与界面会变化，以 OpenAI 官方 Codex 文档为准：<https://developers.openai.com/codex/>。

@@ -1,17 +1,39 @@
 # xia-peng-method-skills
 
-基于有限课程材料及明确署名的外部书籍整理的**非官方、证据驱动型方法论资产库**。主要供 Codex 等宿主使用，覆盖个人画像、场景 Skill、目标管理、多 Agent 工作流设计、副业验证和职业规划，并增加学习方法的选段知识；不冒充夏鹏本人，不自带模型后端、长期记忆服务或多 Agent 调度器。
+把夏鹏课程中的方法、原则、案例与边界整理成一套**可追溯、可注册、可评测、可持续扩展的 Agent Skills 方法论资产库**。
 
-> 当前五个来源中，XP-T-001—003 只能提供文件级定位；XP-T-004 有可解析的校对稿段落；XP-T-005 是刘澜《学习之美》的24组选段视觉阅读记录，不是全书逐字稿，也不是夏鹏课程。构建和静态测试不能证明来源结论正确或模型行为通过。对外分发授权与严格行为验收仍需单独确认。
+项目不是“模仿夏鹏人格”的聊天机器人，也不是独立模型服务。它更像一个带证据链的能力层：课程原稿 → 校对/定位 → 知识卡 → Skill → Router → 评测与发布门禁。适用于 Codex 等支持项目文件与 Skills 的宿主。
+
+> **当前状态（2026-09-20）**：7 门夏鹏课程 XP-T-001/002/003/004/006/007/008 均已纳入运行时能力覆盖；其中职场沟通、极简管理、情绪管理分别由 `workplace-communication`、`minimalist-management`、`emotion-management` 独立 Skill 提供。XP-T-005 是刘澜《学习之美》外部书籍选段，不属于夏鹏课程；可通过 Router 检索知识，但独立 `book-learning-transfer` 仍保持候选状态，未绕过授权与评测门禁。
+
+## 你可以用它做什么
+
+| Skill | 主要用途 | 主要来源 |
+| --- | --- | --- |
+| `xia-peng-method-router` | 统一识别任务、选择一个主 Skill、控制证据与授权边界 | XP-T-001—008 |
+| `understand-me` | 在授权资料范围内整理画像差异与待确认事实 | XP-T-001 |
+| `scene-skill-builder` | 把工作方法封装为可评测候选 Skill | XP-T-002 |
+| `goal-management` | 目标口径、路径、资源、节奏、汇报与复盘 | XP-T-002 |
+| `agent-team-workflow` | Collector / Planner / Doer 等角色与契约设计 | XP-T-003 |
+| `side-business-system` | 主业约束下的可逆副业验证 | XP-T-003/004 |
+| `career-planning` | 优势证据、岗位/行业/公司/城市/学历与第二曲线决策 | XP-T-001/004 |
+| `workplace-communication` | 向上、向下、平级与客户沟通；减少误解、建立信任、推动结果 | XP-T-006 |
+| `minimalist-management` | KPI/OKR、会议、情景领导、授权激励、绩效面谈、新接团队 | XP-T-007 |
+| `emotion-management` | 当下情绪、近期反应、长期重复内耗、事实/信念/选择拆分 | XP-T-008 |
+
+声明版本、依赖与来源以 [Skill 注册表](03_agent/skill_registry.json) 为准。`create-readme` 是开发辅助 Skill，不进入运行包。
 
 ## 快速开始
 
-完整克隆本仓库，在仓库根目录执行（Python 3.11+）：
+完整克隆仓库，在根目录执行（Python 3.11+）：
 
 ```bash
 python -m venv .venv
-# macOS / Linux：source .venv/bin/activate
-# Windows PowerShell：.venv\Scripts\Activate.ps1
+# macOS / Linux
+source .venv/bin/activate
+# Windows PowerShell
+# .venv\Scripts\Activate.ps1
+
 python -m pip install -r requirements-dev.txt
 python scripts/assets.py validate
 python -m unittest discover -s tests -v
@@ -19,87 +41,155 @@ python scripts/assets.py build
 python scripts/assets.py validate --check-build
 ```
 
-构建产物在 `dist/`：`runtime/` 与 `runtime.zip` 是内部运行包；`review_dashboard.html` 是自动生成的知识审阅页；`golden_questions.md` 是评测人员视图，**不要提供给被测模型**。运行包不包含私人目录、inbox、题库预期或第三方开发辅助 Skill。
+构建产物在 `dist/`：
 
-在 Codex 中打开仓库，先输入：
+- `dist/runtime/`：内部运行目录；
+- `dist/runtime.zip`：确定性运行包；
+- `dist/review_dashboard.html`：知识审阅页；
+- `dist/eval-prompts.jsonl`：隔离后的评测输入；
+- `dist/golden_questions.md`：评测人员视图，**不得提供给被测模型**。
 
-```text
-阅读 AGENTS.md 和 03_agent/METHOD_POLICY.md，说明当前证据范围与可用 Skill，不修改文件。
-```
+运行包不会包含 `05_user_private/`、`01_source/inbox/`、题库预期、测试文件或开发辅助 Skill。
 
-然后直接描述任务，或显式调用 `$career-planning`、`$goal-management` 等。详细说明见 [Codex 使用指南](README_CODEX.md)。单独复制某个 `SKILL.md` 不等于带走其证据和公共规则。
+## 在 Codex 中使用
 
-## 能力与依赖
-
-| Skill | 作用 |
-| --- | --- |
-| `xia-peng-method-router` | 一个主流程，按需加入辅助能力，控制材料边界 |
-| `understand-me` | 读取授权资料，生成待确认画像差异 |
-| `scene-skill-builder` | 生成可评测的候选 Skill，审核后再启用 |
-| `goal-management` | 目标口径、路径、资源、节奏、汇报与复盘 |
-| `agent-team-workflow` | 设计 Collector / Planner / Doer 的责任、契约和回退 |
-| `side-business-system` | 在现实约束下设计可逆副业验证 |
-| `career-planning` | 优势证据、职业选项、试炼与回退路径 |
-
-声明版本与可选依赖以 [Skill 注册表](03_agent/skill_registry.json) 为准。`create-readme` 是原有第三方开发辅助工具，不属于方法论运行包。
-
-### 外部书籍：刘澜《学习之美》
-
-新增24条原则XP-P-049—072，保留五项修炼、四问学习法、四种迁移、22个技巧与18个学习力公式的来源归属。公式不是数值评分量表，步骤模板与风险护栏包含工程化应用。
-
-`book-learning-transfer` 位于 `08_ops/skill_candidates/`，仍为候选，**不在上述已注册能力中，不可把它视为已启用的自动发现Skill**。书籍原意可通过现有router及知识卡查询；候选流程须另经用户审阅和隔离行为验收。24条新增评测定义位于 `06_evals/learning_beauty_evals.jsonl`，不代表模型已答对。
-
-```bash
-python scripts/assets.py resolve XP-T-005#P016
-python scripts/assets.py context --skill xia-peng-method-router --query "四问"
-```
-
-来源定位与验证范围见 [接入记录](08_ops/ingestions/XP-T-005.md)。维护索引JSON不随运行包分发；运行时作者、PDF哈希及页码可从已打包的阅读记录头部和各锚点回查。原书PDF不上传仓库。
-
-## 架构与唯一维护源
+打开仓库后，首次建议输入：
 
 ```text
-01_source/          原稿、校对稿、登记清单与来源哈希锁
-02_knowledge/       YAML 知识卡：原则、案例、模型、冲突、风险主张
+阅读 AGENTS.md、03_agent/METHOD_POLICY.md 和 03_agent/skill_registry.json。
+说明当前来源边界、可用 Skill 与引用限制，不修改文件。
+```
+
+之后直接描述任务，Router 会选择主能力；也可以显式调用：
+
+```text
+$workplace-communication
+我明天要和领导谈资源不足，帮我把目标、事实、诉求、交换条件和时间节点整理清楚。
+```
+
+```text
+$emotion-management
+我连续几年遇到类似场景都会爆发，帮我先判断这是一次事件还是长期重复模式，再选一个模型处理。
+```
+
+```text
+$minimalist-management
+我下周接手一个成熟团队，帮我按课程框架设计第一个月的管理顺序。
+```
+
+详细说明见 [Codex 使用指南](README_CODEX.md)。单独复制某个 `SKILL.md` 不等于带走其公共规则、知识与来源证据。
+
+## 来源覆盖与注册规则
+
+### 夏鹏课程
+
+| Source ID | 内容 | 运行时覆盖 |
+| --- | --- | --- |
+| XP-T-001 | 让智能体懂你 | `understand-me` / `career-planning` |
+| XP-T-002 | 场景型 Skill 与目标管理 | `scene-skill-builder` / `goal-management` |
+| XP-T-003 | 多 Agent 工作流与变现系统 | `agent-team-workflow` / `side-business-system` |
+| XP-T-004 | 职业规划 | `career-planning` |
+| XP-T-006 | 职场沟通实讲 | `workplace-communication` |
+| XP-T-007 | 极简管理课 | `minimalist-management` |
+| XP-T-008 | 情绪管理 | `emotion-management` |
+
+校验器要求所有 `knowledge_extracted` 来源必须被主 Router 覆盖；以后新增课程如果完成知识提取却忘记注册，CI 会直接失败。
+
+### 外部书籍 XP-T-005
+
+XP-T-005 是刘澜《学习之美》的 24 组选段视觉阅读记录，不是夏鹏课程，也不是全书逐字稿。新增知识卡 XP-P-049—072 保留原作者归属。18 个学习力公式按关系隐喻处理，不作为数值诊断或成功率预测。
+
+`08_ops/skill_candidates/book-learning-transfer/` 仍是候选能力，未进入 `.agents/skills/`；对外授权仍待确认，因此不能因为“课程全部上线”而顺带把该外部书籍候选公开启用。
+
+## 架构
+
+```text
+01_source/          原稿、校对稿、manifest、来源哈希锁
+02_knowledge/       原则 / 案例 / 模型 / 冲突 / 风险主张知识卡
 03_agent/           公共运行规则与 Skill 注册表
-.agents/skills/     唯一 Skill 编辑源
-05_user_private/   本地授权资料；不进入分发包
-06_evals/          JSONL 题库与评分规则；不进入被测模型上下文
-08_ops/            接入、审阅、迁移记录和发布流程
-schemas/           版本化数据契约
-scripts/           校验、构建、检索上下文、接入与评测工具
-tests/            合成资料单元测试与资产契约检查
-dist/             自动生成，不编辑、不提交
+.agents/skills/     唯一 Skill 编辑源与自动发现入口
+04_skills/          兼容占位；禁止反向同步
+05_user_private/    本地授权个人资料；不进入分发包
+06_evals/           JSONL 行为题库；不进入被测模型上下文
+07_deployment/      部署与上传说明
+08_ops/             接入 SOP、迁移、审阅与发布流程
+schemas/            数据契约
+scripts/            校验、构建、来源解析、接入与评分工具
+tests/              工程回归与资产契约测试
+dist/               自动生成；不编辑、不提交
 ```
 
-`04_skills/` 已退出编辑流程，不再反向同步。原则 JSONL、黄金题展示、审阅页面由源资产生成，不保留第二个独立编辑源。公共方法规则只有 [METHOD_POLICY.md](03_agent/METHOD_POLICY.md) 一份；平台系统提示词由构建复制，工程维护规则留在 [AGENTS.md](AGENTS.md)。
+唯一维护源原则：
 
-## 证据与引用命令
+- Skill 只编辑 `.agents/skills/`；
+- 知识只编辑 `02_knowledge/*.yaml`；
+- 公共方法规则只编辑 `03_agent/METHOD_POLICY.md`；
+- 题库只编辑 `06_evals/*.jsonl`；
+- `dist/` 只能由构建生成。
+
+## 证据与引用
 
 ```bash
-python scripts/assets.py resolve XP-T-004#P012-P020
+python scripts/assets.py resolve XP-T-006#P003-P013
+python scripts/assets.py resolve XP-T-008#P034-P037
 python scripts/assets.py resolve XP-T-001
 ```
 
-`resolve` 只验证文件和锚点，不验证语义支持。前三个来源的旧 `#Pxxx` 已归档到 `legacy_source_refs`，不能继续作为有效引用。知识关联由宿主按注册表和来源字段完成，本仓库不提供语义检索器。
+`resolve` 只证明来源文件和锚点存在，不证明该片段一定支持某个结论。
 
-## 维护与评测
+XP-T-001—003 当前仍只有文件级定位；不得生成未经核对的旧 `#Pxxx`。XP-T-004、006、007、008 可使用 reviewed 文件中的真实段落锚点，但回答仍需检查语义。外部理论、市场数据、公司政策、薪酬、法律和医疗事实需要单独核验，不能因为课程提到就自动视为当前事实。
 
-新课程先暂存：
+## 新课程接入
+
+先登记，不自动上线：
 
 ```bash
 python scripts/scaffold_new_course.py --title "新课程" --transcript /path/to/transcript.txt
 ```
 
-脚本只登记，不自动校对、提取、授权或发布。已登记 ID 或相同稿件拒绝重复创建；失败后按提示处理，不删除仍可能被使用的锁。见 [接入 SOP](08_ops/INCREMENTAL_INGESTION_SOP.md)。
+标准流程：
 
-真实行为评测需要选定宿主和模型。可先生成隔离输入，再由外部宿主逐题执行；评分记录绑定资产和题库摘要，缺题、低分、失效引用或严重越界均不通过。见 [评测说明](06_evals/README.md)。
-
-```bash
-python scripts/assets.py prepare-eval
-python scripts/assets.py grade-eval /path/to/scored-report.json
+```text
+received
+  ↓
+校对/来源锁
+  ↓
+知识提取
+  ↓
+候选 Skill
+  ↓
+人工审阅 + 评测覆盖
+  ↓
+注册表 + Router
+  ↓
+内部运行包
+  ↓
+满足授权/证据/行为报告后才允许公共发布
 ```
 
-公共发布默认被阻止；只有精确证据、授权状态、命名审批和同版本行为报告都满足要求时，`build --public --approval ... --report ...` 才能成功。不要为了让发布通过，修改授权或评分为未经确认的值。
+详见 [增量接入 SOP](08_ops/INCREMENTAL_INGESTION_SOP.md)。
 
-架构决策与迁移边界见 [架构说明](08_ops/ARCHITECTURE.md)，贡献流程见 [CONTRIBUTING.md](CONTRIBUTING.md)，变更见 [CHANGELOG.md](CHANGELOG.md)。
+## 验证与发布边界
+
+工程校验：
+
+```bash
+python scripts/assets.py validate
+python -m unittest discover -s tests -v
+python scripts/assets.py build
+python scripts/assets.py validate --check-build
+```
+
+真实行为验收必须在实际宿主/模型上执行。CI 通过只表示数据契约、引用、构建与工程测试通过，**不表示课程结论真实、模型行为合格或公共分发授权完整**。
+
+公共发布默认被阻止；只有精确证据、来源授权、命名审批和与同一资产版本绑定的行为评分报告同时满足要求时，`build --public` 才能通过。不要通过修改授权或评分来“让发布成功”。
+
+## 维护文档
+
+- [项目工程规则](AGENTS.md)
+- [公共方法规则](03_agent/METHOD_POLICY.md)
+- [架构说明](08_ops/ARCHITECTURE.md)
+- [接入 SOP](08_ops/INCREMENTAL_INGESTION_SOP.md)
+- [评测说明](06_evals/README.md)
+- [贡献指南](CONTRIBUTING.md)
+- [变更记录](CHANGELOG.md)

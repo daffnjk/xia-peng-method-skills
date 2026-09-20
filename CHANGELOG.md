@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased — 全课程运行时注册与项目说明重构（2026-09-20）
+
+- 将已授权且已完成知识提取的 XP-T-006《职场沟通实讲》和 XP-T-008《情绪管理》正式注册为运行时 Skill：`workplace-communication`、`emotion-management`；XP-T-007 `minimalist-management` 保持已注册。
+- Router 升级到 0.4.0，覆盖 XP-T-001—008 的全部已集成来源，并新增沟通、团队管理、情绪管理的复合任务分流。
+- 修复公共规则中的状态漂移：原文声称 XP-T-006/008 位于候选区，但实际候选目录并不存在对应 Skill；现在文档、注册表、自动发现目录与运行口径一致。
+- 新增注册完整性校验：任何 `knowledge_extracted` 来源如果未被 `xia-peng-method-router` 覆盖，资产校验直接失败，并加入回归测试。
+- 重写 README 的项目定位、能力表、课程覆盖、架构、证据边界、新课程上线流程与发布门禁；同步更新 Codex 使用入口。
+- XP-T-005 仍按刘澜外部书籍处理；`book-learning-transfer` 保持候选，未因“全部课程上线”而绕过授权或行为验收。
+- 本轮不修改课程原稿、reviewed 文本、知识卡事实内容、授权状态或已有评测预期；真实宿主行为回归仍需由 CI/宿主记录确认。
+
 ## Unreleased — XP-T-006/007/008 授权与合并 main（2026-09-17）
 
 - 用户于 2026-09-17 会话中明确指示：三门课（XP-T-006/007/008）授权、允许发布、合并 main。manifest 三行 `rights_status` 由 `not_recorded` 改为 `authorized`，并在 notes 记录授权来源与日期；XP-T-001—005 授权状态不变。

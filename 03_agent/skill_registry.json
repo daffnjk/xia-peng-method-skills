@@ -3,16 +3,18 @@
   "skills": [
     {
       "name": "xia-peng-method-router",
-      "version": "0.3.4",
+      "version": "0.4.0",
       "kind": "router",
-      "description": "一个主流程加按需辅助能力；先检查证据和授权。",
+      "description": "统一路由全部已接入课程与外部书籍知识；先检查证据、授权与任务边界。",
       "source_refs": [
         "XP-T-001",
         "XP-T-002",
         "XP-T-003",
         "XP-T-004",
         "XP-T-005",
-        "XP-T-007"
+        "XP-T-006",
+        "XP-T-007",
+        "XP-T-008"
       ],
       "skill_refs": [],
       "resources": []
@@ -93,6 +95,19 @@
       "resources": []
     },
     {
+      "name": "workplace-communication",
+      "version": "0.1.0",
+      "kind": "workflow",
+      "description": "围绕工作结果处理向上、向下、平级与客户沟通：先澄清目标，再减少误解、构建信任并推动结果。",
+      "source_refs": [
+        "XP-T-006"
+      ],
+      "skill_refs": [
+        "goal-management"
+      ],
+      "resources": []
+    },
+    {
       "name": "minimalist-management",
       "version": "0.2.2",
       "kind": "workflow",
@@ -103,6 +118,17 @@
       "skill_refs": [
         "goal-management"
       ],
+      "resources": []
+    },
+    {
+      "name": "emotion-management",
+      "version": "0.1.0",
+      "kind": "workflow",
+      "description": "按时间尺度与问题类型选择情绪处理方法，区分事实、情绪、信念与选择，并保留外部理论归属和重大决策边界。",
+      "source_refs": [
+        "XP-T-008"
+      ],
+      "skill_refs": [],
       "resources": []
     }
   ],

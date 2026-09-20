@@ -197,8 +197,27 @@ class ValidationTests(Base):
         put(self.root,'.agents/skills/unreviewed/SKILL.md','---\nname: unreviewed\n---\n')
         with self.assertRaises(AssetError): self.catalog()
     def test_integrated_source_must_be_routed(self):
-        self.change_registry(lambda d:d['skills'][0].update(source_refs=['XP-T-001','XP-T-002','XP-T-003']))
-        with self.assertRaisesRegex(AssetError, 'Integrated sources missing from router'):
+        manifest = self.root/'01_source/manifest.csv'
+        rows = intake.load_manifest(manifest)[1]
+        row = dict.fromkeys(intake.FIELDS, '')
+        row.update(source_id='XP-T-005', title='课程5', source_type='transcript',
+                   raw_path='01_source/raw/XP-T-005_raw.txt', rights_status='not_recorded',
+                   status='knowledge_extracted', source_version='1.0')
+        raw = put(self.root, row['raw_path'], '原稿 XP-T-005\n')
+        stream = io.StringIO()
+        writer = csv.DictWriter(stream, fieldnames=intake.FIELDS, lineterminator='\n')
+        writer.writeheader(); writer.writerows(rows + [row])
+        manifest.write_text(stream.getvalue(), encoding='utf-8-sig')
+        locks_path = self.root/'01_source/source_locks.json'
+        locks = json.loads(locks_path.read_text())
+        locks['sources']['XP-T-005'] = {
+            'source_version':'1.0', 'raw_path':row['raw_path'],
+            'raw_path_sha256':digest(raw.read_bytes()), 'reviewed_path':'',
+            'reviewed_path_sha256':'', 'locator':'file_only',
+            'assurance':'location_checked_not_semantic_verification'
+        }
+        locks_path.write_bytes(canonical(locks))
+        with self.assertRaisesRegex(AssetError, 'Integrated sources missing from router: XP-T-005'):
             self.catalog()
     def test_development_skill_not_runtime(self):
         put(self.root,'.agents/skills/create-readme/SKILL.md','development only')

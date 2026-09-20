@@ -5,7 +5,19 @@
 首次任务建议：
 
 ```text
-阅读项目规则与公共方法规则，说明已接入来源、引用限制和可用 Skill。不修改文件。
+阅读项目规则、公共方法规则和 Skill 注册表，说明已接入来源、引用限制和可用 Skill。不修改文件。
+```
+
+当前课程专用入口包括 `$workplace-communication`、`$minimalist-management` 和 `$emotion-management`；主 Router 会在复合任务中选择一个主 Skill，而不是把所有能力串行执行。
+
+```text
+$workplace-communication
+我需要和领导谈资源不足。先帮我澄清工作结果、事实、诉求、对方需求、责任人与时间节点。
+```
+
+```text
+$emotion-management
+我连续几年在类似场景都会爆发。先判断是一次事件、近期模式还是长期重复内耗，再选择一个主模型。
 ```
 
 ```text

@@ -196,6 +196,10 @@ class ValidationTests(Base):
     def test_unregistered_skill_rejected(self):
         put(self.root,'.agents/skills/unreviewed/SKILL.md','---\nname: unreviewed\n---\n')
         with self.assertRaises(AssetError): self.catalog()
+    def test_integrated_source_must_be_routed(self):
+        self.change_registry(lambda d:d['skills'][0].update(source_refs=['XP-T-001','XP-T-002','XP-T-003']))
+        with self.assertRaisesRegex(AssetError, 'Integrated sources missing from router'):
+            self.catalog()
     def test_development_skill_not_runtime(self):
         put(self.root,'.agents/skills/create-readme/SKILL.md','development only')
         c=self.catalog(); assets.build(c)

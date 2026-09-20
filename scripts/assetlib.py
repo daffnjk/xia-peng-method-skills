@@ -269,6 +269,16 @@ class Catalog:
                 safe_path(self.root, resource_rel)
                 self.inputs.add(resource_rel)
             self.skills[name] = skill
+        integrated_sources = {sid for sid, row in self.sources.items()
+                              if row['status'] == 'knowledge_extracted'}
+        router = self.skills.get('xia-peng-method-router')
+        if router is None:
+            raise AssetError('Missing required xia-peng-method-router Skill')
+        router_sources = {ref.split('#')[0] for ref in router.get('source_refs', [])}
+        missing_from_router = integrated_sources - router_sources
+        if missing_from_router:
+            raise AssetError('Integrated sources missing from router: ' +
+                             ', '.join(sorted(missing_from_router)))
         skills_dir = safe_path(self.root, '.agents/skills')
         discovered = {p.parent.name for p in skills_dir.glob('*/SKILL.md')}
         extra = discovered - set(self.skills) - set(registry.get('development_skills', []))
